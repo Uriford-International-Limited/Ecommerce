@@ -86,7 +86,7 @@ A cutting-edge, full-featured ecommerce platform built with Next.js, featuring m
 
     npm run lint         # Run ESLint
 
-## Project Structure
+## 🏗 Project Structure
 src/ </br>
 ├── app/ </br>
 │ &emsp; ├── api/</br>
