@@ -162,7 +162,7 @@ src/ </br>
 
 
 
-# Team Workflow
+## 👥 Team Workflow
 - **Fork / clone the repository**
 - **Create a feature branch** (git checkout -b feature/amazing-feature)
 - **Commit your changes** (git commit -m 'Add amazing feature')
