@@ -1,12 +1,7 @@
-import React from 'react';
-import Footer from '@/components/Footer';
-
-const page = () => {
+export default function Home() {
   return (
-    <div>
-      
+    <div className="min-h-screen flex justify-center items-center">
+      <h1 className="text-7xl font-bold">Shopshere</h1>
     </div>
   );
-};
-
-export default page;
+}
