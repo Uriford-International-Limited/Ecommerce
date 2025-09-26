@@ -97,6 +97,7 @@ src/ </br>
 │ &emsp; │ </br>
 │ &emsp; ├── (pages)/ </br>
 │ &emsp; │ &emsp; ├── layout.tsx</br>
+│ &emsp; │ &emsp; ├── page.tsx</br>
 │ &emsp; │ &emsp; │ &emsp; </br>
 │ &emsp; │ &emsp; ├── about/</br>
 │ &emsp; │ &emsp; │ &emsp; └── page.tsx</br>
