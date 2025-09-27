@@ -1,9 +1,5 @@
-import Hero from "./(pages)/home/sections/Hero";
+import AfterHero from "./(pages)/home/sections/AfterHero";
 
 export default function Home() {
-  return (
-    <>
-      <Hero/>
-    </>
-  );
+  return <AfterHero />;
 }
