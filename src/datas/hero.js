@@ -2,8 +2,7 @@ export const cardItems = [
     {
         image: "/hero1.svg",
         label: "Payment only online",
-        description:
-            "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
+        description:"Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
     },
     {
         image: "/hero2.svg",
