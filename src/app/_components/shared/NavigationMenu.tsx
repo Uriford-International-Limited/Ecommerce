@@ -53,14 +53,14 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
   ];
 
   return (
-    <div className="hidden lg:block border-b border-gray-200">
+    <div className="border-b border-gray-200">
       <div className="container mx-auto px-2 sm:px-4 py-0">
         <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
           {/* All Categories */}
-          <div className="relative flex-shrink-0">
+          <div className="relative hidden lg:flex flex-shrink-0">
             <button
               onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
-              className="flex items-center justify-between border p-2 w-[235px] rounded-b-none rounded-md hover:text-primary cursor-pointer"
+              className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary cursor-pointer"
             >
               <div className="flex items-center gap-2">
                 <Grid size={18} />
@@ -70,7 +70,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
             </button>
 
             {allCategoriesOpen && (
-              <div className="absolute left-0 top-full w-[235px] bg-white border shadow-xs rounded-t-none z-50">
+              <div className="absolute left-0 top-full w-60 h-[24rem] xl:h-auto overflow-y-auto bg-sidebar border shadow-xs rounded-md rounded-t-none z-50">
                 {categories.map((cat, idx) => {
                   const Icon = cat.icon;
                   return (
@@ -79,7 +79,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
                         href={`/categories/${cat.label
                           .toLowerCase()
                           .replace(/\s+/g, "-")}`}
-                        className="flex items-center gap-2 px-4 py-[9.5px] hover:bg-gray-100 text-gray-700"
+                        className="flex items-center gap-2 px-4 py-2.5 hover:bg-gray-100 text-sidebar-foreground"
                       >
                         <Icon size={16} />
                         <span>{cat.label}</span>
@@ -109,7 +109,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
           ))}
 
           {/* Right-side Links */}
-          <div className="flex items-center space-x-4 lg:space-x-6 ml-auto flex-shrink-0">
+          <div className="hidden xl:flex items-center space-x-4 lg:space-x-6 ml-auto flex-shrink-0">
             <Link
               href="/trending"
               className="flex items-center gap-1 hover:text-primary"
@@ -134,8 +134,8 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="flex flex-col md:hidden space-y-2 text-gray-700">
-            {categories.map((cat) => {
+          <div className="flex flex-col md:hidden space-y-2 text-sidebar-foreground py-3">
+            {/* {categories.map((cat) => {
               const Icon = cat.icon;
               return (
                 <Link
@@ -149,7 +149,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
                   <span>{cat.label}</span>
                 </Link>
               );
-            })}
+            })} */}
             {navLinks.map((link) => (
               <Link
                 key={link.href}

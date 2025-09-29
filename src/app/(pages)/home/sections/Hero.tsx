@@ -5,11 +5,11 @@ import { cardItems } from "@/datas";
 const Hero = () => {
   return (
     <section>
-      <div className="container mx-auto h-[calc(100vh-42rem)] sm:h-[calc(100vh-35rem)] md:h-[calc(100vh-31rem)] xl:h-[calc(100vh-20rem)] px-4 mt-17 sm:mt-20 md:mt-[148px]">
-        <div className="h-full flex gap-5">
-          <div className="hidden lg:block w-[275px] h-full rounded-lg bg-amber-400"></div>
-          <div className="bg-[url('/hero.svg')] bg-center bg-cover lg:col-span-10 md:p-12 2xl:p-18 p-2 rounded-lg overflow-hidden">
-            <div className="lg:w-3/4 xl:w-2/3 2xl:w-1/2 space-y-2 md:space-y-4 2xl:space-y-6">
+      <div className="container mx-auto h-[calc(100vh-42rem)] sm:h-[calc(100vh-35rem)] md:h-[calc(100vh-31rem)] xl:h-[calc(100vh-22rem)] px-4 mt-17 sm:mt-20 md:mt-[130px] lg:mt-[148px]">
+        <div className="h-full flex gap-4">
+          <div className="hidden lg:block min-w-60 h-full"></div>
+          <div className="bg-[url('/hero.svg')] w-full bg-center bg-cover p-2 sm:p-6 md:p-10 2xl:p-14 rounded-lg overflow-hidden">
+            <div className="lg:w-3/4 xl:w-2/3 2xl:w-1/2 space-y-2 sm:space-y-4 2xl:space-y-5">
               <p className="bg-gradient-to-r from-green-800/60 via-green-800/25 text-green-800 inline-block  px-1 py-0.5 lg:px-[11px] lg:py-[7px] rounded-sm font-medium text-sm lg:text-base">
                 Weekend Discount
               </p>
