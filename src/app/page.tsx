@@ -6,4 +6,6 @@ export default function Home() {
       <Hero/>
     </>
   );
-}
+};
+
+export default page;
