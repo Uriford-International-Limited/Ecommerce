@@ -21,7 +21,7 @@ const Footer = () => {
     },
     {
       content: (
-        <Instagram className="text-destructive" size={24} strokeWidth={2} />
+        <Instagram className="text-destructive" size={24} />
       ),
       href: "https://instagram.com",
     },
