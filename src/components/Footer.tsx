@@ -2,14 +2,15 @@ import React from "react";
 import Link from "next/link";
 import OptionList from "@/components/ui/OptionList";
 import Image from "next/image";
-import { LuPhoneCall } from "react-icons/lu";
-import { MdOutlineEmail } from "react-icons/md";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { Facebook, Instagram, Linkedin, PhoneCall, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const icons = [
     {
-      content: <FaFacebookF color="#1877F2" size={22} />,
+      content: (
+        <Facebook color="#1877f2" size={24} fill="#1877f2" strokeWidth={1} />
+      ),
       href: "https://facebook.com",
     },
     {
@@ -19,44 +20,48 @@ const Footer = () => {
       href: "https://twitter.com",
     },
     {
-      content: <FaInstagram color="#FD1D1D" size={22} />,
+      content: (
+        <Instagram className="text-destructive" size={24} strokeWidth={2} />
+      ),
       href: "https://instagram.com",
     },
     {
-      content: <FaLinkedinIn color="#0077B5" size={22} />,
+      content: (
+        <Linkedin color="#0077b5" size={22} fill="#0077b5" strokeWidth={1} />
+      ),
       href: "https://linkedin.com",
     },
   ];
   return (
-    <footer className="py-8 lg:py-[57px] bg-[#f3f4f6]">
+    <footer className="py-8 lg:py-[57px] bg-input">
       <div className="container">
         {/* Upper Part */}
         <div className="grid lg:grid-cols-2 items-center justify-between pb-7 lg:pb-[63px]">
-          <div className="content max-w-[400px] w-full">
-            <h4 className="font-bold pb-1 lg:pb-2 text-lg lg:text-[22px] tracking-[-0.02em] text-[#111827]">
+          <div className="max-w-[400px] w-full">
+            <h4 className="font-bold pb-1 lg:pb-2 text-lg lg:text-[22px] tracking-[-0.02em] text-muted">
               Join our newsletter for £10 offs
             </h4>
-            <p className="text-sm tracking-[-0.02em] leading-[150%] text-[#6b7280]">
+            <p className="text-sm tracking-[-0.02em] leading-[150%] text-muted-foreground">
               Register now to get latest updates on promotions & coupons.Don’t
               worry, we not spam!
             </p>
           </div>
-          <div className="emailAddress lg:ml-auto mt-7 lg:mt-0">
+          <div className="lg:ml-auto mt-7 lg:mt-0">
             <form className="flex items-center relative">
               <input
                 type="email"
                 name="user_email"
-                className="text-[14px] lg:text-[15px] py-3 lg:py-[17px] pl-3 lg:pl-[17px] pr-3 lg:pr-[14%] inset-shadow-xs rounded-[9px] text-[#111827] max-w-[473px] max-h-[54px] w-full h-full outline-0 border-[1.13px] border-[#d1d5db] placeholder:text-[#9ca3af] bg-[#fff] leading-[150%]"
+                className="text-[14px] lg:text-[15px] py-3 lg:py-[17px] pl-3 lg:pl-[17px] pr-3 lg:pr-[14%] inset-shadow-xs rounded-[9px] text-muted max-w-[473px] max-h-[54px] w-full h-full outline-0 border-[1.13px] border-border placeholder:text-muted-foreground bg-background leading-[150%]"
                 placeholder="Your email address"
               />
-              <button className="absolute top-0 right-0 font-medium lg:font-bold text-[13px] lg:text-sm py-[2px] lg:py-1 px-[10px] lg:px-5 rounded-r-[9px] lg:text-[15px] leading-[300%] cursor-pointer tracking-[-0.02em] text-[#fff] text-center bg-[#634c9f]">
+              <Button className="absolute top-0 right-0 font-medium lg:font-bold text-[13px] lg:text-[15px] py-[21px] lg:py-[26px] px-[10px] lg:px-5 rounded-r-[9px] rounded-l-none leading-[300%] tracking-[-0.02em] text-background text-center">
                 SEND
-              </button>
+              </Button>
             </form>
-            <p className="pt-2 lg:pt-3 text-[12px] leading-[150%] tracking-[-0.03em] text-[#6b7280]">
+            <p className="pt-2 lg:pt-3 text-[12px] leading-[150%] tracking-[-0.03em] text-muted-foreground">
               By subscribing you agree to our
               <Link
-                className="font-medium text-[#634c9f] cursor-pointer ml-1"
+                className="font-medium text-primary cursor-pointer ml-1"
                 href="/"
               >
                 Terms & Conditions and Privacy & Cookies Policy.
@@ -65,25 +70,23 @@ const Footer = () => {
           </div>
         </div>
         {/* Middle Part */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-9 py-7 lg:py-[57px] border-t-[1.13px] border-b-[1.13px] border-t-[#d1d5db] border-b-[#d1d5db] ">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-9 py-7 lg:py-[57px] border-y-[1.13px] border-y-border ">
           <div className="col-span-1 order-4 lg:order-1">
-            <h4 className="pb-[11px] lg:pb-[22px] text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-[#111827]">
+            <h4 className="pb-[11px] lg:pb-[22px] text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-muted">
               Do You Need Help ?
             </h4>
-            <p className="text-sm leading-[150%] tracking-[-0.02em] text-[#6b7280]">
+            <p className="text-sm leading-[150%] tracking-[-0.02em] text-muted-foreground">
               Autoseligen syr. Nek diarask fröbomba. Nör antipol kynoda nynat.
               Pressa fåmoska.
             </p>
             <div className="py-3 lg:py-[35px] flex items-center gap-3 lg:gap-[25px]">
-              <span className="inline-block">
-                <LuPhoneCall className="w-[24px] lg:w-[28px] h-[24px] lg:h-[28px]" />
-              </span>
+              <PhoneCall size={24} className="text-muted" />
               <div>
-                <p className="text-[13px] leading-[150%] tracking-[-0.03em] text-[#6b7280]">
+                <p className="text-[13px] leading-[150%] tracking-[-0.03em] text-muted-foreground">
                   Monday-Friday: 08am-9pm
                 </p>
                 <Link
-                  className="text-sm lg:text-[15px] font-medium lg:font-semibold leading-[150%] tracking-[-0.05em] text-[#111827]"
+                  className="text-sm lg:text-[15px] font-medium lg:font-semibold leading-[150%] tracking-[-0.05em] text-muted"
                   href="tel:0800300-353"
                 >
                   0800300-353
@@ -91,15 +94,13 @@ const Footer = () => {
               </div>
             </div>
             <div className="pb-3 lg:pb-[30px] flex items-center gap-3 lg:gap-[25px]">
-              <span className="inline-block">
-                <MdOutlineEmail className="w-[24px] lg:w-[28px] h-[24px] lg:h-[28px]" />
-              </span>
+              <Mail size={24} className="text-muted" />
               <div>
-                <p className="text-[13px] leading-[150%] tracking-[-0.03em] text-[#6b7280]">
+                <p className="text-[13px] leading-[150%] tracking-[-0.03em] text-muted-foreground">
                   Need help with your order?
                 </p>
                 <Link
-                  className="text-sm lg:text-[15px] font-medium lg:font-semibold leading-[150%] tracking-[-0.05em] text-[#111827]"
+                  className="text-sm lg:text-[15px] font-medium lg:font-semibold leading-[150%] tracking-[-0.05em] text-muted"
                   href="mailto:info@example.com"
                 >
                   info@example.com
@@ -108,7 +109,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-1 order-1 lg:order-2">
-            <h4 className="pb-2 lg:pb-4 text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-[#111827]">
+            <h4 className="pb-2 lg:pb-4 text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-muted">
               Make Money with Us
             </h4>
             <OptionList
@@ -122,11 +123,11 @@ const Footer = () => {
                 { content: "Sell-Publish with Us", href: "/publish" },
                 { content: "Become an Blowwe Vendor", href: "/vendor" },
               ]}
-              className="leading-[150%] tracking-[-0.02em] text-[#4b5563]"
+              className="leading-[150%] tracking-[-0.02em] text-muted-foreground"
             />
           </div>
           <div className="col-span-1 order-2 lg:order-3">
-            <h4 className="pb-2 lg:pb-4 text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-[#111827]">
+            <h4 className="pb-2 lg:pb-4 text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-muted">
               Let Us Help You
             </h4>
             <OptionList
@@ -141,11 +142,11 @@ const Footer = () => {
                 { content: "Cookie Settings", href: "/cookie" },
                 { content: "Help Center", href: "/help" },
               ]}
-              className="leading-[150%] tracking-[-0.02em] text-[#4b5563]"
+              className="leading-[150%] tracking-[-0.02em] text-muted-foreground"
             />
           </div>
           <div className="col-span-1 order-3 lg:order-4">
-            <h4 className="pb-2 lg:pb-4 text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-[#111827]">
+            <h4 className="pb-2 lg:pb-4 text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-muted">
               Get to Know Us
             </h4>
             <OptionList
@@ -158,11 +159,11 @@ const Footer = () => {
                 { content: "Social Responsibility", href: "/reponsibility" },
                 { content: "Store Locations", href: "/locations" },
               ]}
-              className="leading-[150%] tracking-[-0.02em] text-[#4b5563]"
+              className="leading-[150%] tracking-[-0.02em] text-muted-foreground"
             />
           </div>
           <div className="col-span-1 order-5">
-            <h4 className="pb-[11px] lg:pb-[22px] text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-[#111827]">
+            <h4 className="pb-[11px] lg:pb-[22px] text-sm lg:text-[15px] font-semibold leading-[120%] tracking-[-0.02em] text-muted">
               Download our app
             </h4>
             <div className="pb-[6px] lg:pb-[11px] flex items-center gap-2 lg:gap-[17px]">
@@ -174,7 +175,7 @@ const Footer = () => {
                   alt="Google Play"
                 />
               </Link>
-              <p className="text-[13px] font-medium leading-[150%] tracking-[-0.03em] text-[#6b7280]">
+              <p className="text-[13px] font-medium leading-[150%] tracking-[-0.03em] text-muted-foreground">
                 Download App Get -10% Discount
               </p>
             </div>
@@ -187,18 +188,18 @@ const Footer = () => {
                   alt="App Store"
                 />
               </Link>
-              <p className="text-[13px] font-medium leading-[150%] tracking-[-0.03em] text-[#6b7280]">
+              <p className="text-[13px] font-medium leading-[150%] tracking-[-0.03em] text-muted-foreground">
                 Download App Get -20% Discount
               </p>
             </div>
             <div className="pt-7 lg:pt-[56px] pb-2 lg:pb-[18px]">
-              <p className="pb-[11px] text-[13px] tracking-[-0.03em] text-[#111827]">
+              <p className="pb-[11px] text-sm tracking-[-0.03em] text-muted">
                 Follow us on social media:
               </p>
               <OptionList
                 items={icons}
                 className="flex flex-row space-x-[6px] lg:space-x-[10px] space-y-0"
-                itemClassName="flex justify-center w-[40px] lg:w-[40px] h-[40px] lg:h-[40px] lg:leading-[40px] rounded-[7px] bg-[#fff] shadow-md hover:shadow-lg transition"
+                itemClassName="flex justify-center w-[40px] lg:w-[40px] h-[40px] lg:h-[40px] lg:leading-[40px] rounded-[7px] bg-background shadow-md hover:shadow-lg transition"
               />
             </div>
           </div>
@@ -206,11 +207,11 @@ const Footer = () => {
         {/* Lower Part */}
         <div className="grid lg:grid-cols-2 items-center justify-between pt-7 lg:pt-[58px]">
           <div>
-            <p className="pb-3 lg:pb-[25px] text-[13px] text-center lg:text-left font-medium leading-[150%] tracking-[-0.03em] text-[#6b7280]">
+            <p className="pb-3 lg:pb-[25px] text-[13px] text-center lg:text-left font-medium leading-[150%] tracking-[-0.03em] text-muted-foreground">
               Copyright 2025 © Shopstore WooCommerce WordPress Theme. All right
               reserved. Powered by
               <Link
-                className="font-semibold text-[#634c9f] cursor-pointer ml-1"
+                className="font-semibold text-primary cursor-pointer ml-1"
                 href="/blackRiseThemes"
               >
                 BlackRise Themes.
@@ -279,7 +280,7 @@ const Footer = () => {
                 { content: "Privacy Policy", href: "/policy" },
                 { content: "Order Tracking", href: "/tracking" },
               ]}
-              className="text-[13px] flex flex-row gap-2 justify-center lg:justify-end underline leading-[150%] tracking-[-0.03em] text-[#111827]"
+              className="text-[13px] flex flex-row gap-2 justify-center lg:justify-end underline leading-[150%] tracking-[-0.03em] text-muted"
             />
           </div>
         </div>
