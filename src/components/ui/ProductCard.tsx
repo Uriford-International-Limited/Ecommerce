@@ -5,19 +5,21 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "./button";
 import { Heart, Plus, CheckCircle, Flame, Snowflake, Star } from "lucide-react";
+import { IProduct } from "@/types/Product";
 
 interface cardTypes {
   direction?: "vertical" | "horizontal";
-  items: object[];
+  item: IProduct;
   className?: string;
 }
 
 const ProductCard: React.FC<cardTypes> = ({
   direction = "vertical",
-  items,
+  item,
   className,
+  ...prop
 }) => {
   const [wish, setWish] = React.useState<boolean>(false);
 
@@ -25,12 +27,19 @@ const ProductCard: React.FC<cardTypes> = ({
     <div
       className={cn(
         "relative h-[430px] max-w-[250px] border p-4",
-        direction === "horizontal" && "h-[215px] max-w-[500px] flex"
+        direction === "horizontal" && "h-[215px] max-w-[500px] flex",
+        className
       )}
+      {...prop}
     >
-      <div className={cn("relative h-7/12 p-3", direction === "horizontal" && "h-full w-5/12")}>
+      <div
+        className={cn(
+          "relative h-7/12 p-3",
+          direction === "horizontal" && "h-full w-5/12"
+        )}
+      >
         <Image
-          src="/oil.png"
+          src={item.image}
           width={300}
           height={500}
           alt="Product Image"
@@ -39,7 +48,7 @@ const ProductCard: React.FC<cardTypes> = ({
 
         {/* Discount label */}
         <span className="absolute top-0 left-0 text-xs p-1 px-2 bg-destructive/70 rounded-full">
-          50%
+          {item.off}%
         </span>
 
         {/* Wish icon */}
@@ -48,23 +57,27 @@ const ProductCard: React.FC<cardTypes> = ({
           size="22px"
           color="var(--destructive)"
           className={cn(
-            "absolute top-0 right-0 cursor-pointer", direction === "horizontal" && "right-2",
+            "absolute top-0 right-0 cursor-pointer",
+            direction === "horizontal" && "right-2",
             wish && "fill-destructive"
           )}
         />
 
         {/* Type label */}
         <ProductTypeBadge
-          variant="organic"
+          variant={item.category}
           className="absolute bottom-1 left-0"
         />
       </div>
 
       {/* Product Details */}
-      <div className={cn("h-5/12 flex flex-col justify-between" , direction === "horizontal" && "h-full w-7/12")}>
-        <h3 className="font-medium line-clamp-2">
-          100 Percent Apple Juice - 64 floz Bottle
-        </h3>
+      <div
+        className={cn(
+          "h-5/12 flex flex-col justify-between",
+          direction === "horizontal" && "h-full w-7/12"
+        )}
+      >
+        <h3 className="font-medium line-clamp-2">{item.title}</h3>
 
         <div className="flex items-center gap-0.5">
           {Array.from({ length: 5 }).map((_, idx) => (
@@ -74,7 +87,8 @@ const ProductCard: React.FC<cardTypes> = ({
         </div>
 
         <strong className="text-xl text-destructive">
-          $0.50 <del className="text-muted-foreground text-base">$1.00</del>
+          $0.50{" "}
+          <del className="text-muted-foreground text-base">${item.price}</del>
         </strong>
 
         <Button
