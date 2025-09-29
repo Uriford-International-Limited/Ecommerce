@@ -1,11 +1,10 @@
-import React from 'react';
-import Footer from '@/components/Footer';
+import Hero from "./(pages)/home/sections/Hero";
 
-const page = () => {
+export default function Home() {
   return (
-    <div>
-      <Footer />
-    </div>
+    <>
+      <Hero/>
+    </>
   );
 };
 
