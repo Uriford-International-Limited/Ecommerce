@@ -10,23 +10,36 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white sticky top-0 z-50 w-full">
+    <header className="bg-white fixed top-0 z-50 w-full">
+
       {/* Top Bar */}
-      <div className="hidden md:flex bg-gray-100 text-xs text-gray-600 px-2 py-2 border-b border-gray-200">
-        <div className="flex flex-1 items-center gap-4">
-          <Link href="/about-us" className="hover:text-gray-900">About Us</Link>
-          <Link href="/account" className="hover:text-gray-900">My Account</Link>
-          <Link href="/wishlist" className="hover:text-gray-900">Wishlist</Link>
-          <span>
-            We Deliver To You Every Day <span className="text-destructive font-semibold">7:00–23:00</span>
-          </span>
-        </div>
-        <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1 cursor-pointer hover:text-gray-900">English <ChevronDown size={14} /></span>
-          <span className="flex items-center gap-1 cursor-pointer hover:text-gray-900">USD <ChevronDown size={14} /></span>
-          <Link href="/order-tracking" className="hover:text-gray-900 flex items-center">Order Tracking</Link>
-        </div>
-      </div>
+<div className="hidden md:flex bg-gray-100 text-xs text-gray-600 border-b border-gray-200">
+  <div className="container mx-auto flex justify-between px-2 py-2">
+
+    {/* Left side */}
+    <div className="flex items-center gap-4">
+      <Link href="/about-us" className="hover:text-gray-900">About Us</Link>
+      <Link href="/account" className="hover:text-gray-900">My Account</Link>
+      <Link href="/wishlist" className="hover:text-gray-900">Wishlist</Link>
+      <span>
+        We Deliver To You Every Day <span className="text-destructive font-semibold">7:00–23:00</span>
+      </span>
+    </div>
+
+    {/* Right side */}
+    <div className="flex items-center gap-4">
+      <span className="flex items-center gap-1 cursor-pointer hover:text-gray-900">
+        English <ChevronDown size={14} />
+      </span>
+      <span className="flex items-center gap-1 cursor-pointer hover:text-gray-900">
+        USD <ChevronDown size={14} />
+      </span>
+      <Link href="/order-tracking" className="hover:text-gray-900 flex items-center">
+        Order Tracking
+      </Link>
+    </div>
+  </div>
+</div>
 
       {/* Main Header */}
       <div className="container mx-auto px-2 sm:px-4 py-3 flex items-center justify-between">

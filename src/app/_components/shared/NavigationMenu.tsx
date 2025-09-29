@@ -1,4 +1,3 @@
-"use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
@@ -42,7 +41,7 @@ interface NavigationMenuProps {
 }
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
-  const [allCategoriesOpen, setAllCategoriesOpen] = useState(false);
+  const [allCategoriesOpen, setAllCategoriesOpen] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -65,20 +64,25 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
   ];
 
   return (
-    <div className="bg-gray-50">
+    <div className="border-b border-gray-200">
       <div className="container mx-auto px-2 sm:px-4 py-0 md:py-2">
-        {/* Desktop Navigation */}
+        
         <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
           {/* All Categories */}
           <div ref={dropdownRef} className="relative flex-shrink-0">
             <button
-              onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
-              className="flex items-center gap-1 hover:text-primary"
-            >
-              <Grid size={18} /> All Categories <ChevronDown size={16} />
-            </button>
+  onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
+  className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary"
+>
+  <div className="flex items-center gap-2"> 
+    <Grid size={18} />
+    <span>All Categories</span>
+  </div>
+  <ChevronDown size={16} />
+</button>
+
             {allCategoriesOpen && (
-              <div className="absolute left-0 mt-1 w-60 bg-white shadow-lg rounded-md z-50">
+              <div className="absolute left-0 top-full w-60 bg-white border shadow-xs rounded-t-none z-50">
                 {categories.map((cat, idx) => {
                   const Icon = cat.icon;
                   return (
@@ -105,15 +109,20 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
             </Link>
           ))}
 
-          {/* Right-side Links */}
+  
+        {/* Right-side Links */}
           <div className="flex items-center space-x-4 lg:space-x-6 ml-auto flex-shrink-0">
             <Link href="/trending" className="flex items-center gap-1 hover:text-primary">
               Trending Products <ChevronDown size={16} />
             </Link>
-            <Link href="/almost-finished" className="flex items-center gap-2 text-destructive whitespace-nowrap">
-              <span>Almost Finished</span>
-              <span className="bg-destructive text-white px-2 py-0.5 rounded text-xs">SALE</span>
-            </Link>
+
+        <Link href="/almost-finished" className="flex flex-col items-start text-destructive">
+    <span className="pr-4">Almost Finished</span> 
+    <span className="flex items-center gap-1 mt-1">
+      <span className="bg-destructive text-white px-2 py-0.5 rounded text-xs">SALE</span>
+      <ChevronDown size={16} className="text-destructive" />
+    </span>
+  </Link>
           </div>
         </div>
 
