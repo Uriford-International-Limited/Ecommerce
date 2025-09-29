@@ -1,7 +1,13 @@
+import ProductCard from "@/components/ProductCard";
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <h1 className="text-7xl font-bold">Shopshere</h1>
+    <div className="min-h-screen flex">
+      <section className="container mx-auto flex justify-center">
+
+      <ProductCard direction="horizontal" items={[]}/>
+      <ProductCard items={[]}/>
+      </section>
     </div>
   );
 }
