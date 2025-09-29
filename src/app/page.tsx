@@ -1,11 +1,9 @@
 import Hero from "./(pages)/home/sections/Hero";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
-      <Hero/>
+      <Hero />
     </>
   );
-};
-
-export default page;
+}

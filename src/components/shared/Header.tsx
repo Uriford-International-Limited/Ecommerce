@@ -13,16 +13,16 @@ import {
   X,
   ChevronDown,
 } from "lucide-react";
-import NavigationMenu from "./NavigationMenu";
+import NavigationMenu from "./widgets/NavigationMenu";
 
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white fixed top-0 z-50 w-full">
+    <header className="bg-white w-full">
       {/* Top Bar */}
       <div className="hidden md:flex bg-gray-100 text-xs text-gray-600 border-b border-gray-200">
-        <div className="container mx-auto flex justify-between px-2 py-2">
+        <div className="container flex justify-between px-2 py-2">
           {/* Left side */}
           <div className="flex items-center gap-4">
             <Link href="/about-us" className="hover:text-gray-900">
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
       </div>
 
       {/* Main Header */}
-      <div className="container mx-auto px-2 sm:px-4 py-3 flex items-center justify-between">
+      <div className="container px-2 sm:px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-1">
             <Image
