@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
@@ -46,7 +45,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setAllCategoriesOpen(false);
       }
     };
@@ -65,21 +67,20 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
 
   return (
     <div className="border-b border-gray-200">
-      <div className="container mx-auto px-2 sm:px-4 py-0 md:py-2">
-        
+      <div className="container mx-auto px-2 sm:px-4 py-0">
         <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
           {/* All Categories */}
           <div ref={dropdownRef} className="relative flex-shrink-0">
             <button
-  onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
-  className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary"
->
-  <div className="flex items-center gap-2"> 
-    <Grid size={18} />
-    <span>All Categories</span>
-  </div>
-  <ChevronDown size={16} />
-</button>
+              onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
+              className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary"
+            >
+              <div className="flex items-center gap-2">
+                <Grid size={18} />
+                <span>All Categories</span>
+              </div>
+              <ChevronDown size={16} />
+            </button>
 
             {allCategoriesOpen && (
               <div className="absolute left-0 top-full w-60 bg-white border shadow-xs rounded-t-none z-50">
@@ -88,13 +89,17 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
                   return (
                     <React.Fragment key={cat.label}>
                       <Link
-                        href={`/categories/${cat.label.toLowerCase().replace(/\s+/g, '-')}`}
+                        href={`/categories/${cat.label
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
                         className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 text-gray-700"
                       >
                         <Icon size={16} />
                         <span>{cat.label}</span>
                       </Link>
-                      {idx < categories.length - 1 && <div className="border-b border-gray-200 mx-4"></div>}
+                      {idx < categories.length - 1 && (
+                        <div className="border-b border-gray-200 mx-4"></div>
+                      )}
                     </React.Fragment>
                   );
                 })}
@@ -104,25 +109,39 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
 
           {/* Navigation Links */}
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="flex items-center gap-1 hover:text-primary">
-              {link.label} {(link.label === "Home" || link.label === "Shop") && <ChevronDown size={16} />}
+            <Link
+              key={link.href}
+              href={link.href}
+              className="flex items-center gap-1 hover:text-primary"
+            >
+              {link.label}{" "}
+              {(link.label === "Home" || link.label === "Shop") && (
+                <ChevronDown size={16} />
+              )}
             </Link>
           ))}
 
-  
-        {/* Right-side Links */}
+          {/* Right-side Links */}
           <div className="flex items-center space-x-4 lg:space-x-6 ml-auto flex-shrink-0">
-            <Link href="/trending" className="flex items-center gap-1 hover:text-primary">
+            <Link
+              href="/trending"
+              className="flex items-center gap-1 hover:text-primary"
+            >
               Trending Products <ChevronDown size={16} />
             </Link>
 
-        <Link href="/almost-finished" className="flex flex-col items-start text-destructive">
-    <span className="pr-4">Almost Finished</span> 
-    <span className="flex items-center gap-1 mt-1">
-      <span className="bg-destructive text-white px-2 py-0.5 rounded text-xs">SALE</span>
-      <ChevronDown size={16} className="text-destructive" />
-    </span>
-  </Link>
+            <Link
+              href="/almost-finished"
+              className="flex items-start text-destructive"
+            >
+              <span className="pr-4">Almost Finished</span>
+              <span className="flex items-center gap-1 mt-1">
+                <span className="bg-destructive text-white px-2 py-0.5 rounded text-xs">
+                  SALE
+                </span>
+                <ChevronDown size={16} className="text-destructive" />
+              </span>
+            </Link>
           </div>
         </div>
 
@@ -134,7 +153,9 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
               return (
                 <Link
                   key={cat.label}
-                  href={`/categories/${cat.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={`/categories/${cat.label
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
                   className="flex items-center gap-2 px-2 py-2 hover:bg-gray-100 text-gray-700"
                 >
                   <Icon size={16} />
@@ -146,7 +167,11 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center gap-2 ${link.label.includes("Almost") ? "text-destructive" : "hover:text-primary"}`}
+                className={`flex items-center gap-2 ${
+                  link.label.includes("Almost")
+                    ? "text-destructive"
+                    : "hover:text-primary"
+                }`}
               >
                 {link.label}
               </Link>
