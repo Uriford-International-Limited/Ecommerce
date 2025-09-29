@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   Grid,
@@ -14,6 +14,7 @@ import {
   Home,
   HeartPulse,
   Baby,
+  ChevronUp,
 } from "lucide-react";
 
 interface Category {
@@ -41,20 +42,6 @@ interface NavigationMenuProps {
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
   const [allCategoriesOpen, setAllCategoriesOpen] = useState(true);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setAllCategoriesOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -66,24 +53,24 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
   ];
 
   return (
-    <div className="border-b border-gray-200">
+    <div className="hidden lg:block border-b border-gray-200">
       <div className="container mx-auto px-2 sm:px-4 py-0">
         <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
           {/* All Categories */}
-          <div ref={dropdownRef} className="relative flex-shrink-0">
+          <div className="relative flex-shrink-0">
             <button
               onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
-              className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary"
+              className="flex items-center justify-between border p-2 w-[235px] rounded-b-none rounded-md hover:text-primary cursor-pointer"
             >
               <div className="flex items-center gap-2">
                 <Grid size={18} />
                 <span>All Categories</span>
               </div>
-              <ChevronDown size={16} />
+              <ChevronUp size={18} className={allCategoriesOpen ? "rotate-0" : "rotate-180"}/>
             </button>
 
             {allCategoriesOpen && (
-              <div className="absolute left-0 top-full w-60 bg-white border shadow-xs rounded-t-none z-50">
+              <div className="absolute left-0 top-full w-[235px] bg-white border shadow-xs rounded-t-none z-50">
                 {categories.map((cat, idx) => {
                   const Icon = cat.icon;
                   return (
@@ -92,7 +79,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
                         href={`/categories/${cat.label
                           .toLowerCase()
                           .replace(/\s+/g, "-")}`}
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 text-gray-700"
+                        className="flex items-center gap-2 px-4 py-[9.5px] hover:bg-gray-100 text-gray-700"
                       >
                         <Icon size={16} />
                         <span>{cat.label}</span>

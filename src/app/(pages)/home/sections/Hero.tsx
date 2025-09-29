@@ -5,10 +5,10 @@ import { cardItems } from "@/datas";
 const Hero = () => {
   return (
     <section>
-      <div className="container mx-auto h-[calc(100vh-42rem)] sm:h-[calc(100vh-35rem)] md:h-[calc(100vh-31rem)] xl:h-[calc(100vh-20rem)]">
-        <div className="h-full grid grid-cols-9 gap-5">
-          <div className="bg-secondary hidden lg:block col-span-2 rounded-lg"></div>
-          <div className="bg-[url('/hero.svg')] bg-center bg-cover col-span-9 lg:col-span-7 md:p-12 2xl:p-18 p-2 rounded-lg overflow-hidden">
+      <div className="container mx-auto h-[calc(100vh-42rem)] sm:h-[calc(100vh-35rem)] md:h-[calc(100vh-31rem)] xl:h-[calc(100vh-20rem)] px-4 mt-17 sm:mt-20 md:mt-[148px]">
+        <div className="h-full flex gap-5">
+          <div className="hidden lg:block w-[275px] h-full rounded-lg bg-amber-400"></div>
+          <div className="bg-[url('/hero.svg')] bg-center bg-cover lg:col-span-10 md:p-12 2xl:p-18 p-2 rounded-lg overflow-hidden">
             <div className="lg:w-3/4 xl:w-2/3 2xl:w-1/2 space-y-2 md:space-y-4 2xl:space-y-6">
               <p className="bg-gradient-to-r from-green-800/60 via-green-800/25 text-green-800 inline-block  px-1 py-0.5 lg:px-[11px] lg:py-[7px] rounded-sm font-medium text-sm lg:text-base">
                 Weekend Discount
