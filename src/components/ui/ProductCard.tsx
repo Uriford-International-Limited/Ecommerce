@@ -23,6 +23,12 @@ const ProductCard: React.FC<cardTypes> = ({
 }) => {
   const [wish, setWish] = React.useState<boolean>(false);
 
+  let priceWithDiscount = item.price;
+  if (item.off) {
+    priceWithDiscount = (item.price * (1 - item.off / 100));
+  }
+
+
   return (
     <div
       className={cn(
@@ -87,8 +93,10 @@ const ProductCard: React.FC<cardTypes> = ({
         </div>
 
         <strong className="text-xl text-destructive">
-          $0.50{" "}
-          <del className="text-muted-foreground text-base">${item.price}</del>
+          ${priceWithDiscount.toFixed(2)}&nbsp;
+          {item.off && (
+            <del className="text-muted-foreground text-base">${item.price.toFixed(2)}</del>
+          )}
         </strong>
 
         <Button
