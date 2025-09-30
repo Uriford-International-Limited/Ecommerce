@@ -80,27 +80,29 @@ const ProductCard: React.FC<cardTypes> = ({
       {/* Product Details */}
       <div
         className={cn(
-          "h-5/12 flex flex-col justify-between",
-          direction === "horizontal" && "h-full w-7/12"
+          "h-5/12 flex flex-col justify-end gap-2",
+          direction === "horizontal" && "h-full w-7/12 justify-between"
         )}
       >
-        <h3 className="font-medium line-clamp-2">{item.title}</h3>
+        <div className="flex flex-col gap-1">
+          <h3 className="font-medium line-clamp-2">{item.title}</h3>
 
-        <div className="flex items-center gap-0.5">
-          {Array.from({ length: 5 }).map((_, idx) => (
-            <Star key={idx} size={13} />
-          ))}
-          <span>3</span>
+          <div className="flex items-center gap-0.5">
+            {Array.from({ length: 5 }).map((_, idx) => (
+              <Star key={idx} size={13} />
+            ))}
+            <span>3</span>
+          </div>
+
+          <strong className="text-xl text-destructive">
+            ${priceWithDiscount.toFixed(2)}&nbsp;
+            {item.off && (
+              <del className="text-muted-foreground text-base">
+                ${item.price.toFixed(2)}
+              </del>
+            )}
+          </strong>
         </div>
-
-        <strong className="text-xl text-destructive">
-          ${priceWithDiscount.toFixed(2)}&nbsp;
-          {item.off && (
-            <del className="text-muted-foreground text-base">
-              ${item.price.toFixed(2)}
-            </del>
-          )}
-        </strong>
 
         <Button
           variant="outline"
@@ -118,7 +120,7 @@ export default ProductCard;
 
 // Product Type Badge
 const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-full px-2.5 py-0.5 text-sm font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none  transition-[color,box-shadow] overflow-hidden",
+  "inline-flex items-center justify-center rounded-full px-2.5 py-0.5 text-sm font-bold w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none transition-[color,box-shadow] overflow-hidden",
   {
     variants: {
       variant: {
