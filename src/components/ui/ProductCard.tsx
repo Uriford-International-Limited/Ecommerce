@@ -25,9 +25,8 @@ const ProductCard: React.FC<cardTypes> = ({
 
   let priceWithDiscount = item.price;
   if (item.off) {
-    priceWithDiscount = (item.price * (1 - item.off / 100));
+    priceWithDiscount = item.price * (1 - item.off / 100);
   }
-
 
   return (
     <div
@@ -53,9 +52,11 @@ const ProductCard: React.FC<cardTypes> = ({
         />
 
         {/* Discount label */}
-        <span className="absolute top-0 left-0 text-xs p-1 px-2 bg-destructive/70 rounded-full">
-          {item.off}%
-        </span>
+        {item.off && (
+          <span className="absolute top-0 left-0 text-xs p-1 px-2 bg-destructive/70 rounded-full">
+            {item.off}%
+          </span>
+        )}
 
         {/* Wish icon */}
         <Heart
@@ -95,7 +96,9 @@ const ProductCard: React.FC<cardTypes> = ({
         <strong className="text-xl text-destructive">
           ${priceWithDiscount.toFixed(2)}&nbsp;
           {item.off && (
-            <del className="text-muted-foreground text-base">${item.price.toFixed(2)}</del>
+            <del className="text-muted-foreground text-base">
+              ${item.price.toFixed(2)}
+            </del>
           )}
         </strong>
 
