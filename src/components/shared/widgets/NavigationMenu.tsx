@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Grid,
   ChevronDown,
@@ -42,6 +43,7 @@ interface NavigationMenuProps {
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
   const [allCategoriesOpen, setAllCategoriesOpen] = useState(true);
+  const pathname = usePathname();
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -56,8 +58,10 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
     <div className="border-b border-gray-200">
       <div className="container mx-auto px-2 sm:px-4 py-0">
         <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
+
           {/* All Categories */}
-          <div className="relative hidden lg:flex flex-shrink-0">
+           {pathname === "/" && (
+            <div className="relative hidden lg:flex flex-shrink-0">
             <button
               onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
               className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary cursor-pointer"
@@ -93,13 +97,15 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
               </div>
             )}
           </div>
+          )}
+          
 
           {/* Navigation Links */}
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="flex items-center gap-1 hover:text-primary"
+              className="flex items-center gap-1 hover:text-primary py-1.5"
             >
               {link.label}{" "}
               {(link.label === "Home" || link.label === "Shop") && (

@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const Signup = () => {
   return (
-    <div className="container">
+    <div className="container min-h-screen">
       <div className="flex w-full max-w-[450px] mx-auto py-[60px] md:py-[80px] lg:py-[106px] flex-col gap-6">
         <Tabs defaultValue="login">
           <TabsList className="flex justify-center mx-auto w-full max-w-[70%]">

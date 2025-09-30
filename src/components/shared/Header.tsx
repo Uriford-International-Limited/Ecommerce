@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import NavigationMenu from "./widgets/NavigationMenu";
 import {
   User,
   Heart,
@@ -13,7 +14,6 @@ import {
   X,
   ChevronDown,
 } from "lucide-react";
-import NavigationMenu from "./widgets/NavigationMenu";
 
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
