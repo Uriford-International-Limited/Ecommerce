@@ -27,7 +27,7 @@ const Signup = () => {
           </TabsList>
           {/* LOGIN */}
           <TabsContent value="login">
-            <p className="pt-4 lg:pt-8 text-center text-[13px] leading-[150%] tracking-[-0.02em] text-muted">
+            <p className="pt-4 lg:pt-8 text-center text-[13px] leading-[150%] tracking-[-0.02em]">
               If you have an account, sign in with your username or email
               address.
             </p>
@@ -57,7 +57,7 @@ const Signup = () => {
           </TabsContent>
           {/* REGISTER */}
           <TabsContent value="register">
-            <p className="pt-4 lg:pt-8 text-center text-[13px] leading-[150%] tracking-[-0.02em] text-muted">
+            <p className="pt-4 lg:pt-8 text-center text-[13px] leading-[150%] tracking-[-0.02em]">
               There are many advantages to creating an account: the payment
               process is faster, shipment tracking is possible and much more.
             </p>
