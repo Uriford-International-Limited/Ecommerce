@@ -31,8 +31,8 @@ const ProductCard: React.FC<cardTypes> = ({
   return (
     <div
       className={cn(
-        "relative h-[430px] max-w-[250px] border p-4",
-        direction === "horizontal" && "h-[215px] max-w-[500px] flex",
+        "relative h-[430px] max-w-[256px] border p-4",
+        direction === "horizontal" && "h-[215px] max-w-[512px] flex",
         className
       )}
       {...prop}
