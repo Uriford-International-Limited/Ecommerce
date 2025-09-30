@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "./button";
 import { Heart, Plus, CheckCircle, Flame, Snowflake, Star } from "lucide-react";
-import { IProduct } from "@/types/Product";
+import { IProduct } from "@/types";
 
 interface cardTypes {
   direction?: "vertical" | "horizontal";
