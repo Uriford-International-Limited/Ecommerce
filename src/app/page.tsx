@@ -1,3 +1,9 @@
-export default function Home() {
-  return <div className="min-h-screen flex justify-center items-center"></div>;
+import Hero from "./(pages)/home/sections/Hero";
+
+export default function Page() {
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }
