@@ -5,7 +5,7 @@ import { cardItems } from "@/datas";
 const Hero = () => {
   return (
     <section>
-      <div className="container px-4 mt-2">
+      <div className="container px-4 my-2">
         <div className="h-[calc(100vh-42rem)] sm:h-[calc(100vh-35rem)] md:h-[calc(100vh-31rem)] xl:h-[calc(100vh-22rem)] flex gap-4">
           <div className="hidden lg:block min-w-60 h-full"></div>
           <div className="bg-[url('/hero.svg')] w-full bg-center bg-cover p-2 sm:p-6 md:p-10 2xl:p-14 rounded-lg overflow-hidden">
