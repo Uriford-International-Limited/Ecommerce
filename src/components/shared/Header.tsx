@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white w-full">
+    <header className="relative bg-white w-full">
       {/* Top Bar */}
       <div className="hidden md:flex bg-gray-100 text-xs text-gray-600 border-b border-gray-200">
         <div className="container flex justify-between px-2 py-2">

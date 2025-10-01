@@ -55,50 +55,51 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
   ];
 
   return (
-    <div className="border-b border-gray-200">
+    <div className="absolute lg:static w-full top-full border-b border-gray-200 bg-white">
       <div className="container mx-auto px-2 sm:px-4 py-0">
         <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
-
           {/* All Categories */}
-           {pathname === "/" && (
+          {pathname === "/" && (
             <div className="relative hidden lg:flex flex-shrink-0">
-            <button
-              onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
-              className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary cursor-pointer"
-            >
-              <div className="flex items-center gap-2">
-                <Grid size={18} />
-                <span>All Categories</span>
-              </div>
-              <ChevronUp size={18} className={allCategoriesOpen ? "rotate-0" : "rotate-180"}/>
-            </button>
+              <button
+                onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
+                className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Grid size={18} />
+                  <span>All Categories</span>
+                </div>
+                <ChevronUp
+                  size={18}
+                  className={allCategoriesOpen ? "rotate-0" : "rotate-180"}
+                />
+              </button>
 
-            {allCategoriesOpen && (
-              <div className="absolute left-0 top-full w-60 h-[24rem] xl:h-auto overflow-y-auto bg-sidebar border shadow-xs rounded-md rounded-t-none z-50">
-                {categories.map((cat, idx) => {
-                  const Icon = cat.icon;
-                  return (
-                    <React.Fragment key={cat.label}>
-                      <Link
-                        href={`/categories/${cat.label
-                          .toLowerCase()
-                          .replace(/\s+/g, "-")}`}
-                        className="flex items-center gap-2 px-4 py-2.5 hover:bg-gray-100 text-sidebar-foreground"
-                      >
-                        <Icon size={16} />
-                        <span>{cat.label}</span>
-                      </Link>
-                      {idx < categories.length - 1 && (
-                        <div className="border-b border-gray-200 mx-4"></div>
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-              </div>
-            )}
-          </div>
+              {allCategoriesOpen && (
+                <div className="absolute left-0 top-full w-60 h-[24rem] xl:h-auto overflow-y-auto bg-sidebar border shadow-xs rounded-md rounded-t-none z-50">
+                  {categories.map((cat, idx) => {
+                    const Icon = cat.icon;
+                    return (
+                      <React.Fragment key={cat.label}>
+                        <Link
+                          href={`/categories/${cat.label
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                          className="flex items-center gap-2 px-4 py-2.5 hover:bg-gray-100 text-sidebar-foreground"
+                        >
+                          <Icon size={16} />
+                          <span>{cat.label}</span>
+                        </Link>
+                        {idx < categories.length - 1 && (
+                          <div className="border-b border-gray-200 mx-4"></div>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           )}
-          
 
           {/* Navigation Links */}
           {navLinks.map((link) => (
