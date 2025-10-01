@@ -17,7 +17,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   className,
 }) => {
   return (
-    <section className="container my-5 space-y-3">
+    <section className="container space-y-3">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="inline text-xl font-bold me-5">{label}</h2>
