@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       <Hero />
 
       <LimitedTime />
