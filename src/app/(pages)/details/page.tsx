@@ -84,7 +84,7 @@ const ProductDetailsPage: React.FC = () => {
           </div>
 
           {/* WhatsApp Button */}
-          <Button className="bg-green-700 w-full sm:w-fit mt-2 text-xs sm:text-sm">
+          <Button className="bg-green-700 hover:bg-green-800 w-full sm:w-fit mt-2 text-xs sm:text-sm">
             Order on WhatsApp
           </Button>
 

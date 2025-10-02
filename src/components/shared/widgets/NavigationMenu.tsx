@@ -55,7 +55,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
   ];
 
   return (
-    <div className="absolute lg:static w-full top-full border-b border-gray-200 bg-white">
+    <div className="absolute lg:static w-full top-full border-b border-gray-200 bg-white z-50">
       <div className="container mx-auto px-2 sm:px-4 py-0">
         <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
           {/* All Categories */}
