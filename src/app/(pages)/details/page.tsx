@@ -33,8 +33,9 @@ const ProductDetailsPage: React.FC = () => {
           <div className="w-full h-[250px] sm:h-[400px] mb-6 relative">
             <Image
               src="/banana.png"
+              width={500}
+              height={500}
               alt="Marketside Fresh Organic Bananas, Bunch"
-              fill
               className="object-contain rounded-lg size-full"
               priority
             />
