@@ -1,6 +1,5 @@
-"use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { 
   Star, 
   Heart, 
@@ -11,38 +10,15 @@ import {
   CreditCard, 
   ShieldCheck 
 } from "lucide-react";
+import { Button } from "../../../components/ui/button"; 
+import Counter from "../../../components/ui/Counter";
 
 const ProductDetailsPage: React.FC = () => {
-  const [headerHeight, setHeaderHeight] = useState(0);
-
-  useEffect(() => {
-    const header = document.querySelector("header");
-    if (header) setHeaderHeight(header.clientHeight);
-  }, []);
-
   return (
-    <main
-      className="container mx-auto px-4 py-8"
-      style={{ paddingTop: `${headerHeight}px` }} >
-    
-      <nav className="text-gray-500 mb-4 text-sm" aria-label="breadcrumb">
-        <ol className="flex flex-wrap gap-1 items-center">
-          <li>Home</li>
-          <li className="px-1">{">"}</li>
-          <li>Fruits & Vegetables</li>
-          <li className="px-1">{">"}</li>
-          <li>Exotic Fruits & Veggies</li>
-          <li className="px-1">{">"}</li>
-          <li className="font-semibold text-gray-700">
-            Marketside Fresh Organic Bananas, Bunch
-          </li>
-        </ol>
-      </nav>
-
+    <main className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-       
         <div>
-          {/* Buttons left */}
+          
           <div className="flex flex-col gap-2 mb-4">
             <button className="bg-red-700 text-white px-4 py-1 rounded-full w-fit">
               56%
@@ -53,45 +29,40 @@ const ProductDetailsPage: React.FC = () => {
             </button>
           </div>
 
-          {/* left Product image -remaining */}
-          <div className="flex justify-center items-center bg-white-100 rounded-lg h-[400px] mb-6">
-            <span className="text-gray-400">Product Image </span>
+          {/* Product Image */}
+          <div className="flex justify-center items-center bg-gray-50 rounded-lg h-[400px] mb-6">
+            <img
+              src="/banana.png"
+              alt="Marketside Fresh Organic Bananas, Bunch"
+              className="object-contain h-full w-full rounded-lg"
+            />
           </div>
         </div>
 
-        {/* Right side Product Details */}
+        {/* Right Product Details */}
         <div className="flex flex-col gap-4">
-        
           <h1 className="text-3xl font-bold leading-snug">
             Marketside Fresh Organic Bananas, Bunch
           </h1>
 
           <div className="flex items-center gap-3">
-          
             <div className="flex items-center gap-1">
               {[...Array(3)].map((_, idx) => (
-                <Star
-                  key={idx}
-                  className="w-4 h-4 text-yellow-400 fill-yellow-400"
-                />
+                <Star key={idx} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
               ))}
               {[...Array(2)].map((_, idx) => (
                 <Star key={idx} className="w-5 h-5 text-gray-300" />
               ))}
             </div>
 
-            {/* Ratings */}
-            <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
-              3.00
-            </span>
-            <span className="text-sm text-gray-600">2 reviews</span>
+            <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">3.00</span>
+            <span className="text-sm text-gray-600">2</span>
             <span className="text-gray-300">|</span>
             <span className="text-sm text-gray-600">SKU: E7F8G9H0</span>
           </div>
 
           <hr className="border-gray-200 my-2" />
 
-          {/* Short Description */}
           <p className="text-gray-700">
             Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus
             malesuada tincidunt. Class aptent taciti sociosqu ad litora
@@ -105,35 +76,29 @@ const ProductDetailsPage: React.FC = () => {
           </div>
 
           {/* WhatsApp Button */}
-          <button className="bg-green-700 text-white px-5 py-2 rounded-md w-fit mt-2">
-  Order on WhatsApp
-</button>
+          <Button className="bg-green-700 w-fit mt-2">
+            Order on WhatsApp
+          </Button>
 
-          {/* Offer Button */}
-          <button className="bg-yellow-50 text-orange-500 px-4 py-1 rounded-md w-fit text-sm">
-  Special Offer: 83 76 5 :77 Remains until the end of the year
-</button>
+          {/* Special Offer */}
+          <button className="bg-yellow-50 text-orange-500 px-4 py-1 rounded-md w-fit text-sm mt-2">
+            Special Offer: 83 76 5 :77 Remains until the end of the year
+          </button>
 
-          {/* Quantity and Cart Buttons */}
+          {/* Quantity Cart Buy Now */}
           <div className="flex items-center gap-2 mt-2">
-        
-            <div className="flex items-center border rounded-md">
-    <button className="px-2 py-1">-</button>
-    <span className="px-4 py-1">1</span>
-    <button className="px-2 py-1">+</button>
-  </div>
+            <Counter />
 
-            {/* Add to Cart and buy now */}
-            <button className="bg-green-700 text-white px-6 py-2 rounded-md flex items-center gap-2">
-    <ShoppingCart className="w-4 h-4" /> Add to Cart
-  </button>
+            <Button className="bg-green-700 flex items-center gap-2">
+              <ShoppingCart className="w-4 h-4" /> Add to Cart
+            </Button>
 
-            <button className="bg-black text-white px-6 py-2 rounded-md flex items-center gap-2">
-    <Zap className="w-4 h-4" /> Buy Now
-  </button>
-</div>
+            <Button className="bg-black flex items-center gap-2">
+              <Zap className="w-4 h-4" /> Buy Now
+            </Button>
+          </div>
 
-          {/* Payment nd Warranty Box */}
+          {/* Payment and Warranty */}
           <div className="border border-gray-300 rounded p-4 mt-4 text-gray-600 text-sm space-y-3">
             <div className="flex items-start gap-2">
               <CreditCard className="w-5 h-5 text-gray-500 mt-0.5" />
@@ -153,7 +118,7 @@ const ProductDetailsPage: React.FC = () => {
             </div>
           </div>
 
-          {/*  Wishlist Share Compare */}
+          {/* Wishlist Share Compare */}
           <div className="flex items-center gap-6 mt-4 text-sm text-gray-600">
             <button className="flex items-center gap-1 hover:text-black">
               <Heart className="w-4 h-4" /> Add to wishlist
@@ -168,7 +133,6 @@ const ProductDetailsPage: React.FC = () => {
         </div>
       </div>
 
-       {/* Description  */}
       <div className="mt-10">
         <div className="flex gap-6 border-b border-gray-200 pb-2 text-gray-700 font-medium">
           <button className="hover:text-black">Description</button>
@@ -176,7 +140,7 @@ const ProductDetailsPage: React.FC = () => {
         </div>
 
         <div className="mt-4 text-gray-600 text-sm leading-relaxed space-y-3">
-         <p>
+          <p>
             Quisque varius diam vel metus mattis, id aliquam diam rhoncus. Proin vitae magna in dui finibus malesuada et at nulla. Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula. Fusce
             fermentum iaculis nibh, at sodales leo maximus a. Nullam ultricies sodales nunc, in pellentesque lorem mattis quis. Cras imperdiet est in nunc tristique lacinia. Nullam aliquam mauris eu
             accumsan tincidunt. Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.
@@ -188,11 +152,10 @@ const ProductDetailsPage: React.FC = () => {
             Maecenas lacus odio, feugiat eu nunc sit amet, maximus sagittis dolor.
             Vivamus nisi sapien, elementum sit amet eros sit amet, ultricies cursus
             ipsum. Sed consequat luctus ligula. Curabitur laoreet rhoncus blandit.
-            Aenean vel diam ut arcu pharetra dignissim ut sed leo.Vivamus faucibus, ipsum in vestibulum vulputate, lorem orci convallis
+            Aenean vel diam ut arcu pharetra dignissim ut sed leo. Vivamus faucibus, ipsum in vestibulum vulputate, lorem orci convallis
             quam, sit amet consequat nulla felis pharetra lacus. Duis semper erat
             mauris, sed egestas purus commodo vel.
           </p>
-          
         </div>
       </div>
     </main>
