@@ -31,11 +31,19 @@ const Counter: React.FC<CounterProps> = ({ initial = 1, min = 1, max = 99, onCha
 
   return (
     <div className="flex items-center border rounded-md overflow-hidden">
-      <Button className="px-3 py-1 rounded-none" onClick={decrement}>
+      <Button
+        variant="ghost"
+        className="px-3 py-1 rounded-none hover:bg-white"
+        onClick={decrement}
+      >
         -
       </Button>
       <span className="px-4 py-1">{count}</span>
-      <Button className="px-3 py-1 rounded-none" onClick={increment}>
+      <Button
+        variant="ghost"
+        className="px-3 py-1 rounded-none hover:bg-white"
+        onClick={increment}
+      >
         +
       </Button>
     </div>

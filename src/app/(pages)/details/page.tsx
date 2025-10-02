@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import {
   Star,
   Heart,
@@ -16,9 +17,8 @@ const ProductDetailsPage: React.FC = () => {
   return (
     <main className="container mx-auto px-4 md:px-8 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left Column */}
+        {/* Left side */}
         <div className="flex flex-col">
-          {/* Tags above image */}
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-red-700 text-white px-4 py-1 rounded-full text-xs sm:text-sm">
               56%
@@ -30,22 +30,24 @@ const ProductDetailsPage: React.FC = () => {
           </div>
 
           {/* Product Image */}
-          <div className="flex justify-center items-center bg-gray-50 rounded-lg h-[300px] sm:h-[400px] mb-6">
-            <img
+          <div className="w-full h-[250px] sm:h-[400px] mb-6 relative">
+            <Image
               src="/banana.png"
               alt="Marketside Fresh Organic Bananas, Bunch"
-              className="object-contain h-full w-full rounded-lg"
+              fill
+              className="object-contain rounded-lg size-full"
+              priority
             />
           </div>
         </div>
 
-        {/* Right Column - Product Details */}
+        {/* Right side Product Details */}
         <div className="flex flex-col gap-4">
-          <h1 className="text-2xl sm:text-3xl font-bold leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug">
             Marketside Fresh Organic Bananas, Bunch
           </h1>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <div className="flex items-center gap-1">
               {[...Array(3)].map((_, idx) => (
                 <Star
@@ -58,8 +60,7 @@ const ProductDetailsPage: React.FC = () => {
               ))}
             </div>
 
-            <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
-              3.00
+            <span className="bg-gray-100 text-muted-foreground font-semibold text-xs px-2 py-1 rounded">3.00
             </span>
             <span className="text-sm text-gray-600">2</span>
             <span className="text-gray-300">|</span>
@@ -68,7 +69,7 @@ const ProductDetailsPage: React.FC = () => {
 
           <hr className="border-gray-200 my-2" />
 
-          <p className="text-gray-700 text-sm sm:text-base">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg">
             Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus
             malesuada tincidunt. Class aptent taciti sociosqu ad litora
             torquent. Vivamus adipiscing nisl ut dolor dignissim semper.
@@ -79,34 +80,32 @@ const ProductDetailsPage: React.FC = () => {
             <span className="text-red-600 font-bold text-xl sm:text-2xl">
               $0.89
             </span>
-            <span className="text-gray-500 line-through">$1.99</span>
+            <span className="text-gray-700 line-through font-semibold">$1.99</span>
           </div>
 
           {/* WhatsApp Button */}
-          <Button className="bg-green-700 w-fit mt-2 text-xs sm:text-sm">
+          <Button className="bg-green-700 w-full sm:w-fit mt-2 text-xs sm:text-sm">
             Order on WhatsApp
           </Button>
 
-          {/* Special Offer */}
           <span className="bg-yellow-50 text-orange-500 px-4 py-1 rounded-md w-fit text-xs sm:text-sm mt-2 inline-block">
             Special Offer: 83 76 5 :77 Remains until the end of the year
           </span>
 
-          {/* Quantity + Cart/Buy Now */}
+          {/* Quantity Cart and Buy Now */}
           <div className="flex flex-wrap items-center gap-2 mt-2">
             <Counter />
-
-            <Button className="bg-green-700 flex items-center gap-2 text-xs sm:text-sm">
+            <Button className="bg-green-700 hover:bg-green-800 flex items-center gap-2 text-xs sm:text-sm w-full sm:w-auto">
               <ShoppingCart className="w-4 h-4" /> Add to Cart
             </Button>
 
-            <Button className="bg-black flex items-center gap-2 text-xs sm:text-sm">
+            <Button className="bg-black hover:bg-black/80 flex items-center gap-2 text-xs sm:text-sm w-full sm:w-auto">
               <Zap className="w-4 h-4" /> Buy Now
             </Button>
           </div>
 
           {/* Payment and Warranty */}
-          <div className="border border-gray-300 rounded p-4 mt-4 text-gray-600 text-sm space-y-3">
+          <div className="border border-gray-300 rounded p-4 mt-4 text-muted-foreground text-sm space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-start gap-2">
               <CreditCard className="w-5 h-5 text-gray-500 mt-0.5" />
               <p>
@@ -126,7 +125,7 @@ const ProductDetailsPage: React.FC = () => {
           </div>
 
           {/* Wishlist, Share, Compare */}
-          <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-gray-600">
+          <div className="flex flex-wrap items-center gap-6 mt-4 text-sm text-gray-800">
             <Button variant="ghost" className="flex items-center gap-1">
               <Heart className="w-4 h-4" /> Add to wishlist
             </Button>
@@ -140,7 +139,7 @@ const ProductDetailsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Description and Reviews */}
+      {/* Description */}
       <div className="mt-10">
         <div className="flex flex-wrap gap-6 border-b border-gray-200 pb-2 text-gray-700 font-medium">
           <Button variant="ghost" className="hover:text-black text-xs sm:text-sm">
@@ -151,7 +150,7 @@ const ProductDetailsPage: React.FC = () => {
           </Button>
         </div>
 
-        <div className="mt-4 text-gray-600 text-sm sm:text-base leading-relaxed space-y-3">
+        <div className="mt-4 text-muted-foreground text-sm sm:text-base md:text-base leading-relaxed space-y-3">
           <p>
             Quisque varius diam vel metus mattis, id aliquam diam rhoncus. Proin
             vitae magna in dui finibus malesuada et at nulla. Morbi elit ex,
