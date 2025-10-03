@@ -18,17 +18,17 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
 }) => {
   return (
     <section className="container space-y-3">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-2">
         <div>
           <h2 className="inline text-xl font-bold me-5">{label}</h2>
-          <p className="inline text-sm text-muted-foreground">{description}</p>
+          <p className="md:inline text-sm text-muted-foreground">{description}</p>
         </div>
 
         <Button variant="outline" className="rounded-full">
           View All <ArrowRight />
         </Button>
       </div>
-      <div className={cn("flex", className)}>{children}</div>
+      <div className={cn(className)}>{children}</div>
     </section>
   );
 };

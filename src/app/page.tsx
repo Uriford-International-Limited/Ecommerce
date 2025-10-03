@@ -17,6 +17,7 @@ export default function Page() {
       <CardWrapper
         label="New Arrivals"
         description="Dont miss this opportunity at a special discount just for this week."
+        className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] justify-items-center gap-1"
       >
         {arrivalDatas.map((item) => (
           <ProductCard key={item._id} item={item} />
@@ -38,7 +39,7 @@ export default function Page() {
       <CardWrapper
         label="Popular Companies"
         description="Some of the new products arriving this weeks"
-        className="flex"
+        className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))]"
       >
         {Array.from({ length: 4 }).map((_, idx) => (
           <div key={idx} className="min-w-[300px] grow p-4 border">

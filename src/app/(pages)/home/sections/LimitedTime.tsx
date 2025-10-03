@@ -5,12 +5,12 @@ import { ArrowRight } from "lucide-react";
 const LimitedTime = () => {
   return (
     <section>
-      <div className="container flex gap-10">
+      <div className="container flex flex-wrap justify-center gap-10">
         {Array.from({ length: 3 }).map((_, idx) => (
           <div
             key={idx}
             className={cn(
-              "border h-52 min-w-[400px] grow bg-center bg-cover p-4 space-y-3",
+              "border max-h-52 grow bg-center bg-cover p-4 space-y-3",
               idx === 0 && "bg-[url('/lt1.png')]",
               idx === 1 && "bg-[url('/lt2.png')]",
               idx === 2 && "bg-[url('/lt3.png')]"
@@ -18,9 +18,9 @@ const LimitedTime = () => {
           >
             <p className="text-xs text-destructive">Only This Week</p>
 
-            <h2 className="text-2xl font-bold w-3/5">Quality eggs at an affordable price</h2>
+            <h2 className="text-lg md:text-2xl font-bold w-4/5 md:3/5">Quality eggs at an affordable price</h2>
 
-            <Button variant={"outline"} className="rounded-full mt-5">
+            <Button variant={"outline"} className="rounded-full md:mt-5">
               Shop now <ArrowRight />
             </Button>
           </div>
