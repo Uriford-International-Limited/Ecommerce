@@ -1,8 +1,6 @@
 "use client";
 
-import BrandCard from "@/app/shops/components/BrandCard";
 import { useFilters } from "@/hooks/useFilters";
-import FilterSidebar from "@/app/shops/components/FilterSidebar";
 import { SlidersHorizontal, MoveRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -13,6 +11,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import FilterSidebar from "./components/FilterSidebar";
+import BrandCard from "./components/BrandCard";
 
 const Shop = () => {
   const { filters, setFilters } = useFilters({
@@ -44,7 +44,7 @@ const Shop = () => {
   });
 
   return (
-    <div className="container grid lg:grid-cols-6 gap-[34px] py-[30px] lg:py-[60px]">
+    <div className="container grid lg:grid-cols-6 gap-[34px]">
       {/* Filter Sidebar */}
       <div className="col-span-1">
         <div className="hidden lg:block">
@@ -64,7 +64,7 @@ const Shop = () => {
             width={1000}
             height={500}
             alt="Shop Page Banner"
-            className="rounded-[7px]"
+            className="rounded-[7px] w-full"
           />
           <div className="absolute top-[50%] -translate-y-[50%] left-[2%] md:left-[3%] lg:left-[4%] max-w-[431px] w-full">
             <h4 className="hidden w-[80px] lg:w-[96px] h-[20px] lg:h-[24px] text-[10px] rounded-[34px] sm:inline-flex items-center justify-center bg-[#ffedd5] font-semibold tracking-[-0.02em] text-[#7c2d12]">

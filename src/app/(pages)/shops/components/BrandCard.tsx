@@ -21,13 +21,13 @@ const BrandCard = ({ brand }: Props) => {
   return (
     <Card className="group overflow-hidden transition hover:-translate-y-1">
       <CardHeader className="p-0">
-        <div className="relative h-40 w-full overflow-hidden">
+        <div className="relative h-30 sm:h-40 w-full overflow-hidden">
           <Image
             src={brand.imageUrl}
             alt={brand.name}
             width={200}
             height={200}
-            className="w-49 h-49 sm:w-50 sm:h-50 md:w-45 md:h-45 lg:w-[200px] lg:h-[200px] object-cover transition-transform duration-300 group-hover:scale-105 mx-auto"
+            className="w-49 h-full sm:w-50 sm:h-50 md:w-45 md:h-45 lg:w-[200px] lg:h-[200px] object-cover transition-transform duration-300 group-hover:scale-105 mx-auto"
           />
         </div>
       </CardHeader>
