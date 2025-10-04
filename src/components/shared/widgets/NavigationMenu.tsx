@@ -47,7 +47,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Shop", href: "/shop" },
+    { label: "Shops", href: "/shops" },
     { label: "Fruits & Vegetables", href: "/fruits" },
     { label: "Beverages", href: "/beverages" },
     { label: "Blog", href: "/blog" },

@@ -10,7 +10,7 @@ const LimitedTime = () => {
           <div
             key={idx}
             className={cn(
-              "border max-h-52 grow bg-center bg-cover p-4 space-y-3",
+              "border max-h-52 w-[410px] grow bg-center bg-cover p-4 space-y-3",
               idx === 0 && "bg-[url('/lt1.png')]",
               idx === 1 && "bg-[url('/lt2.png')]",
               idx === 2 && "bg-[url('/lt3.png')]"

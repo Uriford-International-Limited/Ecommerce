@@ -17,7 +17,7 @@ export default function Page() {
       <CardWrapper
         label="New Arrivals"
         description="Dont miss this opportunity at a special discount just for this week."
-        className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] justify-items-center gap-1"
+        className="grid grid-cols-[repeat(auto-fit,minmax(210px,1fr))] justify-items-center gap-1"
       >
         {arrivalDatas.map((item) => (
           <ProductCard key={item._id} item={item} />
