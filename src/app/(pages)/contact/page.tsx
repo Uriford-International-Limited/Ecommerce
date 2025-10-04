@@ -23,7 +23,7 @@ const ContactPage: React.FC = () => {
         <div className="flex flex-col gap-8">
           <div>
             <h2 className="font-semibold text-lg mb-2">Our Offices</h2>
-            <p className="text-gray-600 text-sm">
+            <p className="text-muted-foreground text-sm">
               On dekande mydurtad mora även om skurkstat. Semirade timaheten
               rena. Radiogen pasam inte loba även om prerade i garanterad
               traditionell specialitet till bebel. Ev is sönde. Tun gps-väst att
@@ -116,7 +116,7 @@ const ContactPage: React.FC = () => {
 
         {/* Right side*/}
         <div>
-          <p className="text-gray-600 mb-4">
+          <p className="text-muted-foreground mb-4">
             On dekande mydurtad mora även om skurkstat. Semirade timaheten rena.
             Radiogen pasam inte loba även om prerade i garanterad traditionell
             specialitet till bebel.
@@ -225,7 +225,7 @@ const ContactPage: React.FC = () => {
       </div>
       <div className="flex flex-col justify-center">
         <h3 className="font-bold text-black text-lg">{item.title}</h3>
-        <p className="text-gray-600 text-sm">{item.desc}</p>
+        <p className="text-muted-foreground text-sm">{item.desc}</p>
       </div>
     </div>
   ))}
