@@ -19,8 +19,8 @@ const ContactPage: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Left side*/}
-        <div className="flex flex-col gap-8">
+        {/* Left side  */}
+        <div className="flex flex-col gap-8 order-2 lg:order-1">
           <div>
             <h2 className="font-semibold text-lg mb-2">Our Offices</h2>
             <p className="text-muted-foreground text-sm">
@@ -35,21 +35,18 @@ const ContactPage: React.FC = () => {
             <div className="flex items-start gap-3 flex-1">
               <MapPin size={24} className="text-black mt-1" />
               <div className="flex flex-col">
-                <span className="text-sm text-black">
-                  United States
-                </span>
+                <span className="text-sm text-black">United States</span>
                 <span className="font-semibold text-black">
                   United States Office
                 </span>
                 <span className="text-gray-700 text-sm mt-1">
                   205 Middle Road, 2nd Floor, New York
                 </span>
-                <span className="font-bold text-black mt-1">
-                  +02 1234 567 88
-                </span>
+                <span className="font-bold text-black mt-1">+02 1234 567 88</span>
                 <a
                   href="mailto:info@example.com"
-                  className="text-blue-600 text-sm mt-1 hover:underline">
+                  className="text-blue-600 text-sm mt-1 hover:underline"
+                >
                   info@example.com
                 </a>
               </div>
@@ -68,7 +65,8 @@ const ContactPage: React.FC = () => {
                 <span className="font-bold text-black mt-1">+5 456 123 22</span>
                 <a
                   href="mailto:contact@example.com"
-                  className="text-blue-600 text-sm mt-1 hover:underline">
+                  className="text-blue-600 text-sm mt-1 hover:underline"
+                >
                   contact@example.com
                 </a>
               </div>
@@ -80,42 +78,22 @@ const ContactPage: React.FC = () => {
           <div className="flex items-center gap-1 mt-4">
             <span className="text-sm">Follow us:</span>
             <a href="#" aria-label="Facebook">
-              <Image
-                src="/facebook.png"
-                alt="Facebook"
-                width={24}
-                height={24}
-              />
+              <Image src="/facebook.png" alt="Facebook" width={24} height={24} />
             </a>
             <a href="#" aria-label="Twitter">
-              <Image
-                src="/twitter1.png"
-                alt="Twitter"
-                width={24}
-                height={24}
-              />
+              <Image src="/twitter1.png" alt="Twitter" width={24} height={24} />
             </a>
             <a href="#" aria-label="Instagram">
-              <Image
-                src="/instagram.png"
-                alt="Instagram"
-                width={24}
-                height={24}
-              />
+              <Image src="/instagram.png" alt="Instagram" width={24} height={24} />
             </a>
             <a href="#" aria-label="LinkedIn">
-              <Image
-                src="/linkedin.png"
-                alt="LinkedIn"
-                width={24}
-                height={24}
-              />
+              <Image src="/linkedin.png" alt="LinkedIn" width={24} height={24} />
             </a>
           </div>
         </div>
 
-        {/* Right side*/}
-        <div>
+        {/* Right side */}
+        <div className="order-1 lg:order-2">
           <p className="text-muted-foreground mb-4">
             On dekande mydurtad mora även om skurkstat. Semirade timaheten rena.
             Radiogen pasam inte loba även om prerade i garanterad traditionell
@@ -126,26 +104,30 @@ const ContactPage: React.FC = () => {
               <div className="flex-1 flex flex-col">
                 <label
                   htmlFor="name"
-                  className="text-sm font-semibold text-black mb-1">
+                  className="text-sm font-semibold text-black mb-1"
+                >
                   Your Name *
                 </label>
                 <input
                   id="name"
                   type="text"
                   required
-                  className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none"/>
+                  className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none"
+                />
               </div>
               <div className="flex-1 flex flex-col">
                 <label
                   htmlFor="email"
-                  className="text-sm font-semibold text-black mb-1">
+                  className="text-sm font-semibold text-black mb-1"
+                >
                   Your Email *
                 </label>
                 <input
                   id="email"
                   type="email"
                   required
-                  className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none "/>
+                  className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none"
+                />
               </div>
             </div>
 
@@ -160,7 +142,7 @@ const ContactPage: React.FC = () => {
                 id="subject"
                 type="text"
                 required
-                className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none "
+                className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none"
               />
             </div>
 
@@ -186,50 +168,47 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
 
-{/* Bottom Section */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 px-4 md:px-0">
-  {[
-    {
-      src: "/payment.png",
-      title: "Payment only online",
-      desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
-    },
-    {
-      src: "/sales.png",
-      title: "New stocks and sales",
-      desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
-    },
-    {
-      src: "/quality.png",
-      title: "Quality assurance",
-      desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
-    },
-    {
-      src: "/delivery.png",
-      title: "Delivery from 1 hour",
-      desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
-    },
-  ].map((item, idx) => (
-    <div
-      key={idx}
-      className="flex items-center gap-4 text-left"
-    >
-      <div className="flex-shrink-0">
-        <Image
-          src={item.src}
-          alt={item.title}
-          width={60}
-          height={60}
-          className="object-contain"
-        />
+      {/* Bottom Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 px-4 md:px-0">
+        {[
+          {
+            src: "/payment.png",
+            title: "Payment only online",
+            desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
+          },
+          {
+            src: "/sales.png",
+            title: "New stocks and sales",
+            desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
+          },
+          {
+            src: "/quality.png",
+            title: "Quality assurance",
+            desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
+          },
+          {
+            src: "/delivery.png",
+            title: "Delivery from 1 hour",
+            desc: "Tasigförsamhet beteendedesign. Mobile checkout. Ylig kärrtorpa.",
+          },
+        ].map((item, idx) => (
+          <div key={idx} className="flex items-center gap-4 text-left">
+            <div className="flex-shrink-0">
+              <Image
+                src={item.src}
+                alt={item.title}
+                width={60}
+                height={60}
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <h3 className="font-bold text-black text-lg">{item.title}</h3>
+              <p className="text-muted-foreground text-sm">{item.desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
-      <div className="flex flex-col justify-center">
-        <h3 className="font-bold text-black text-lg">{item.title}</h3>
-        <p className="text-muted-foreground text-sm">{item.desc}</p>
-      </div>
-    </div>
-  ))}
-</div>
     </main>
   );
 };
