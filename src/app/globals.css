@@ -117,10 +117,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+  
+ .container {
+    @apply mx-auto px-[5%] lg:px-0;
+  }
 }
-.container {
-  @apply lg:max-w-[1320px] mx-auto px-[5%] lg:px-0;
-}
+

@@ -1,0 +1,180 @@
+import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  Grid,
+  ChevronDown,
+  Apple,
+  Fish,
+  Milk,
+  Cake,
+  CupSoda,
+  Snowflake,
+  Cookie,
+  ShoppingBag,
+  Home,
+  HeartPulse,
+  Baby,
+  ChevronUp,
+} from "lucide-react";
+
+interface Category {
+  label: string;
+  icon: React.ElementType;
+}
+
+const categories: Category[] = [
+  { label: "Fruits & Vegetables", icon: Apple },
+  { label: "Meats & Seafood", icon: Fish },
+  { label: "Breakfast & Dairy", icon: Milk },
+  { label: "Breads & Bakery", icon: Cake },
+  { label: "Beverages", icon: CupSoda },
+  { label: "Frozen Foods", icon: Snowflake },
+  { label: "Biscuits & Snacks", icon: Cookie },
+  { label: "Grocery & Staples", icon: ShoppingBag },
+  { label: "Household Needs", icon: Home },
+  { label: "Healthcare", icon: HeartPulse },
+  { label: "Baby & Pregnancy", icon: Baby },
+];
+
+interface NavigationMenuProps {
+  mobileMenuOpen: boolean;
+}
+
+const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
+  const [allCategoriesOpen, setAllCategoriesOpen] = useState(true);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Shops", href: "/shops" },
+    { label: "Fruits & Vegetables", href: "/fruits" },
+    { label: "Beverages", href: "/beverages" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  return (
+    <div className="absolute lg:static w-full top-full border-b border-gray-200 bg-white z-50">
+      <div className="container mx-auto px-2 sm:px-4 py-0">
+        <div className="hidden md:flex items-center text-gray-800 font-medium w-full flex-nowrap space-x-6">
+          {/* All Categories */}
+          {pathname === "/" && (
+            <div className="relative hidden lg:flex flex-shrink-0">
+              <button
+                onClick={() => setAllCategoriesOpen(!allCategoriesOpen)}
+                className="flex items-center justify-between border p-2 w-60 rounded-b-none rounded-md hover:text-primary cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Grid size={18} />
+                  <span>All Categories</span>
+                </div>
+                <ChevronUp
+                  size={18}
+                  className={allCategoriesOpen ? "rotate-0" : "rotate-180"}
+                />
+              </button>
+
+              {allCategoriesOpen && (
+                <div className="absolute left-0 top-full w-60 h-[24rem] xl:h-auto overflow-y-auto bg-sidebar border shadow-xs rounded-md rounded-t-none z-50">
+                  {categories.map((cat, idx) => {
+                    const Icon = cat.icon;
+                    return (
+                      <React.Fragment key={cat.label}>
+                        <Link
+                          href={`/categories/${cat.label
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`}
+                          className="flex items-center gap-2 px-4 py-2.5 hover:bg-gray-100 text-sidebar-foreground"
+                        >
+                          <Icon size={16} />
+                          <span>{cat.label}</span>
+                        </Link>
+                        {idx < categories.length - 1 && (
+                          <div className="border-b border-gray-200 mx-4"></div>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Navigation Links */}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="flex items-center gap-1 hover:text-primary py-1.5"
+            >
+              {link.label}{" "}
+              {(link.label === "Home" || link.label === "Shop") && (
+                <ChevronDown size={16} />
+              )}
+            </Link>
+          ))}
+
+          {/* Right-side Links */}
+          <div className="hidden xl:flex items-center space-x-4 lg:space-x-6 ml-auto flex-shrink-0">
+            <Link
+              href="/trending"
+              className="flex items-center gap-1 hover:text-primary"
+            >
+              Trending Products <ChevronDown size={16} />
+            </Link>
+
+            <Link
+              href="/almost-finished"
+              className="flex items-start text-destructive"
+            >
+              <span className="pr-4">Almost Finished</span>
+              <span className="flex items-center gap-1 mt-1">
+                <span className="bg-destructive text-white px-2 py-0.5 rounded text-xs">
+                  SALE
+                </span>
+                <ChevronDown size={16} className="text-destructive" />
+              </span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="flex flex-col md:hidden space-y-2 text-sidebar-foreground py-3">
+            {/* {categories.map((cat) => {
+              const Icon = cat.icon;
+              return (
+                <Link
+                  key={cat.label}
+                  href={`/categories/${cat.label
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                  className="flex items-center gap-2 px-2 py-2 hover:bg-gray-100 text-gray-700"
+                >
+                  <Icon size={16} />
+                  <span>{cat.label}</span>
+                </Link>
+              );
+            })} */}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center gap-2 ${
+                  link.label.includes("Almost")
+                    ? "text-destructive"
+                    : "hover:text-primary"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default NavigationMenu;
