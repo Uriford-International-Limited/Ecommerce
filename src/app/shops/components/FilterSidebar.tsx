@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
 import { Filters } from "@/hooks/useFilters";
-import { Slider } from "@/components/ui/slider";
 import {
   Select,
   SelectContent,
@@ -12,17 +10,12 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 type Props = {
   filters: Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
   categories: string[];
 };
-
-const STEP = 1;
-const MIN = 0;
-const MAX = 1000;
 
 const FilterSidebar: React.FC<Props> = ({
   filters,
@@ -31,8 +24,6 @@ const FilterSidebar: React.FC<Props> = ({
 }) => {
   const resetFilters = () => {
     setFilters({
-      minPrice: MIN,
-      maxPrice: MAX,
       categories: [],
       rating: null,
       offers: [],
@@ -42,80 +33,6 @@ const FilterSidebar: React.FC<Props> = ({
 
   return (
     <aside className="w-full p-4 space-y-6">
-      {/* Price Filter */}
-      <div>
-        <h3 className="font-semibold pb-3 lg:pb-[22px]">Widget price filter</h3>
-
-        {/* Number Inputs */}
-        <div className="flex gap-2 lg:gap-1">
-          {/* Min Price */}
-          <div>
-            <Label
-              htmlFor="min"
-              className="pb-1 font-normal text-[13px] text-muted-foreground leading-[150%] tracking-[-0.03em]"
-            >
-              Min price
-            </Label>
-            <Input
-              type="number"
-              min={0}
-              value={filters.minPrice}
-              onChange={(e) => {
-                const value = Number(e.target.value) || 0;
-                setFilters((prev) => ({
-                  ...prev,
-                  minPrice: value,
-                  maxPrice: Math.max(prev.maxPrice, value),
-                }));
-              }}
-            />
-          </div>
-          {/* Max Price */}
-          <div>
-            <Label
-              htmlFor="max"
-              className="pb-1 font-normal text-[13px] text-muted-foreground leading-[150%] tracking-[-0.03em]"
-            >
-              Max price
-            </Label>
-            <Input
-              type="number"
-              min={0}
-              value={filters.maxPrice}
-              onChange={(e) => {
-                const value = Number(e.target.value) || MAX;
-                setFilters((prev) => ({
-                  ...prev,
-                  maxPrice: value,
-                  minPrice: Math.min(prev.minPrice, value),
-                }));
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Price Slider */}
-        <Slider
-          defaultValue={[filters.minPrice, filters.maxPrice]}
-          value={[filters.minPrice, filters.maxPrice]}
-          onValueChange={(values) =>
-            setFilters((prev) => ({
-              ...prev,
-              minPrice: values[0],
-              maxPrice: values[1],
-            }))
-          }
-          min={MIN}
-          max={MAX}
-          step={STEP}
-          className="w-full my-3 lg:my-6"
-        />
-
-        <p className="text-sm lg:text-[15px] text-muted leading-[150%] tracking-[-0.02em]">
-          Price: ${filters.minPrice} - ${filters.maxPrice}
-        </p>
-      </div>
-
       {/* Categories */}
       <div>
         <h3 className="font-semibold pb-1 lg:pb-2">Categories</h3>

@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 export type Filters = {
-  minPrice: number;
-  maxPrice: number;
   categories: string[];
   rating: number | null;
   offers: string[];
