@@ -5,7 +5,7 @@ import { Button } from "../../../components/ui/button";
 
 const ContactPage: React.FC = () => {
   return (
-    <main className="container mx-auto px-4 md:px-8 py-12">
+    <div className="container mx-auto md:px-8 py-3 lg:py-12 ">
       {/* Headline */}
       <div className="text-center mb-12">
         <p className="text-sm text-gray-800 font-bold">Contact With Us</p>
@@ -209,7 +209,7 @@ const ContactPage: React.FC = () => {
           </div>
         ))}
       </div>
-    </main>
+    </div>
   );
 };
 

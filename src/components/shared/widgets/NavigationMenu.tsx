@@ -108,10 +108,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ mobileMenuOpen }) => {
               href={link.href}
               className="flex items-center gap-1 hover:text-primary py-1.5"
             >
-              {link.label}{" "}
-              {(link.label === "Home" || link.label === "Shop") && (
-                <ChevronDown size={16} />
-              )}
+              {link.label}
             </Link>
           ))}
 
