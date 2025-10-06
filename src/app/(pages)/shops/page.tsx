@@ -14,6 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+
 const Shop = () => {
   const { filters, setFilters } = useFilters({
     categories: [],
