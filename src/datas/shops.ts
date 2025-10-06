@@ -1,4 +1,4 @@
-import { Brand } from "@/app/shops/components/BrandCard";
+import { Brand } from "@/app/(pages)/shops/components/BrandCard";
 
 export const allBrands: Brand[] = [
   {

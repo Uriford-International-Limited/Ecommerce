@@ -1,18 +1,18 @@
 "use client";
 
 import { useFilters } from "@/hooks/useFilters";
-import { SlidersHorizontal, MoveRight } from "lucide-react";
 import Image from "next/image";
+import { SlidersHorizontal, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { allBrands } from "@/datas/shops";
+import FilterSidebar from "./components/FilterSidebar";
+import BrandCard from "./components/BrandCard";
+import { allBrands } from "@/datas";
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import FilterSidebar from "./components/FilterSidebar";
-import BrandCard from "./components/BrandCard";
 
 const Shop = () => {
   const { filters, setFilters } = useFilters({
