@@ -24,12 +24,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     { name: "Add Product", href: "/vendors/dashboard/addproduct", icon: PlusCircle },
     { name: "Orders", href: "/vendors/dashboard/orders", icon: Box },
     { name: "Settings", href: "/vendors/dashboard/settings", icon: Settings },
-    { name: "Exit", href: "/vendors/dashboard/exit", icon: LogOut },
+    { name: "Exit", href: "/", icon: LogOut },
   ];
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <div className="sm:hidden flex justify-between items-center bg-white border-b p-4 shadow-md">
+      <div className="sm:hidden flex justify-between items-center border-b p-4 shadow-md">
         <h2 className="text-xl font-bold text-gray-800">Vendor Panel</h2>
         <button
           onClick={() => setSidebarOpen(true)}
@@ -58,7 +58,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           Vendor Panel
         </h2>
 
-        <nav className="flex-1 px-6 sm:px-8 py-4 space-y-3 overflow-y-auto">
+        <nav className="flex-1 px-6 py-4 space-y-3 overflow-y-auto">
           {menuItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -69,10 +69,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 className={`
                   flex items-center px-4 py-3 rounded-md transition
                   ${isActive
-                    ? "bg-purple-50 text-purple-800 font-semibold"
-                    : "text-gray-800 hover:bg-purple-50 hover:text-purple-800"}
+                    ? "bg-accent text-accent-foreground"
+                    : "text-gray-800 hover:bg-accent"}
                 `}>
-                <Icon className="mr-3 w-5 h-5" />
+                <Icon className="mr-3 size-5" />
                 {item.name}
               </Link>
             );
@@ -85,7 +85,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           onClick={() => setSidebarOpen(false)}
           aria-hidden="true"  />
       )}
-      <div className="flex-1 p-4 sm:p-10">{children}</div>
+      <div className="flex-1 p-4">{children}</div>
     </div>
   );
 }

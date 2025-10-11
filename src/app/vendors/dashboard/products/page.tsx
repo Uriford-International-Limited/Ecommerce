@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Edit, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button"; 
 
 type Product = {
   id: number;
@@ -10,7 +11,7 @@ type Product = {
   price: number;
   stock: number;
   category: string;
-  image: string; 
+  image: string;
 };
 
 export default function ProductsPage() {
@@ -48,13 +49,13 @@ export default function ProductsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4 sm:p-10">
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center sm:text-left">
+    <main className="min-h-screen bg-gray-50 p-4">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center sm:text-left">
         Products
       </h1>
 
       {products.length === 0 ? (
-        <p className="text-gray-500 text-center py-20 bg-white border border-gray-200 rounded-2xl">
+        <p className="text-gray-500 text-center py-20 bg-white border border-border rounded-2xl">
           No products found. Please add some products.
         </p>
       ) : (
@@ -62,15 +63,14 @@ export default function ProductsPage() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white border border-gray-200 rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col" >
-        
+              className="bg-white border border-border rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col h-full">
               <div className="relative w-full aspect-square">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
                   className="object-cover"
-                  priority />
+                  priority/>
               </div>
 
               <div className="p-4 sm:p-6 flex flex-col flex-1">
@@ -91,19 +91,19 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="flex gap-2 mt-auto flex-col sm:flex-row">
-                  <button
-                    type="button"
-                    className="flex-1 bg-purple-800 text-white font-medium px-3 py-2 rounded-lg hover:bg-purple-700 transition flex items-center justify-center gap-1 text-sm sm:text-base">
-                    <Edit className="w-2 h-2" />
+                  <Button
+                    variant="default"
+                    className="flex-1 flex items-center justify-center gap-1 text-sm sm:text-base">
+                    <Edit />
                     Edit
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleDelete(product.id)}
-                    className="flex-1 bg-red-600 text-white font-medium px-3 py-2 rounded-lg hover:bg-red-700 transition flex items-center justify-center gap-1 text-sm sm:text-base">
-                    <Trash2 className="w-2 h-2" />
+                  </Button>
+                  <Button
+                    variant="destructive"
+                    className="flex-1 flex items-center justify-center gap-1 text-sm sm:text-base"
+                    onClick={() => handleDelete(product.id)}>
+                    <Trash2 />
                     Delete
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

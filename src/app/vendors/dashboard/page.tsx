@@ -59,8 +59,8 @@ export default function VendorDashboard() {
           <div
             key={idx}
             className="bg-white border border-gray-200 p-4 sm:p-6 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-lg transition">
-            <h3 className="text-gray-500 text-sm">{stat.title}</h3>
-            <p className="text-2xl sm:text-3xl font-bold text-purple-800 mt-2">
+            <h3 className="text-muted-foreground text-sm">{stat.title}</h3>
+       <p className="text-2xl sm:text-3xl font-bold text-primary mt-2">
               {stat.value}
             </p>
           </div>
@@ -69,10 +69,10 @@ export default function VendorDashboard() {
 
       <section className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm overflow-x-auto">
-          <h2 className="text-lg font-semibold mb-4">Recent Orders</h2>
+          <h2 className="text-xl font-semibold mb-4">Recent Orders</h2>
           <table className="w-full text-left">
             <thead>
-              <tr className="text-gray-500 text-sm border-b">
+              <tr className="text-muted-foreground text-sm border-b">
                 <th className="pb-2">Order ID</th>
                 <th className="pb-2">Customer</th>
                 <th className="pb-2">Total</th>
@@ -93,7 +93,7 @@ export default function VendorDashboard() {
         </div>
 
         <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold mb-4">Low Stock Products</h2>
+          <h2 className="text-xl font-semibold mb-4">Low Stock Products</h2>
           <ul className="space-y-2">
             {lowStockProducts.map((product) => (
               <li key={product.id} className="text-gray-700">
@@ -106,7 +106,7 @@ export default function VendorDashboard() {
       </section>
 
       <section className="mt-8">
-        <h2 className="text-lg font-semibold mb-4">Top Selling Products</h2>
+        <h2 className="text-xl font-semibold mb-4">Top Selling Products</h2>
         <div className="flex overflow-x-auto gap-4 pb-4">
           {topProducts.map((product) => (
             <div
@@ -120,7 +120,7 @@ export default function VendorDashboard() {
                   className="object-cover rounded"/>
               </div>
               <p className="text-gray-700 font-medium text-sm">{product.name}</p>
-              <p className="text-purple-800 text-sm">{product.sales} sales</p>
+             <p className="text-primary text-sm">{product.sales} sales</p>
             </div>
           ))}
         </div>

@@ -29,8 +29,8 @@ export default function OrdersPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4 sm:p-10">
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">Orders</h1>
+    <main className="min-h-screen bg-gray-50 p-4">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">Orders</h1>
 
       {orders.length === 0 ? (
         <p className="text-gray-500 text-center py-10 bg-white border border-gray-200 rounded-2xl">

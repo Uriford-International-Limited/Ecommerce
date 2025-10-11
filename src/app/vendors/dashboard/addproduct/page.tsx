@@ -1,7 +1,8 @@
-"use client"; 
+"use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button"; 
 
 type ProductForm = {
   name: string;
@@ -51,8 +52,7 @@ export default function AddProductPage() {
     } else {
       setForm((prev) => ({
         ...prev,
-        [name]:
-          name === "price" || name === "stock" ? Number(value) : value,
+        [name]: name === "price" || name === "stock" ? Number(value) : value,
       }));
     }
   };
@@ -75,18 +75,15 @@ export default function AddProductPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-10">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left">
+    <main className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      <h1 className="text-3xl font-bold mb-6 text-center sm:text-left max-w-4xl mx-auto">
         Add New Product
       </h1>
-
       <form
         onSubmit={handleSubmit}
-        className="max-w-4xl mx-auto grid gap-6 md:grid-cols-2 items-start"
-      >
-        {/* Product name */}
+        className="max-w-4xl mx-auto grid gap-6 md:grid-cols-2 items-start">
         <div className="flex flex-col">
-          <label htmlFor="name" className="text-gray-700 font-medium mb-2">
+          <label htmlFor="name" className="text-muted-foreground font-medium mb-2">
             Product Name
           </label>
           <input
@@ -97,11 +94,11 @@ export default function AddProductPage() {
             onChange={handleChange}
             placeholder="Enter product name"
             required
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800 transition"/>
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition"/>
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="sku" className="text-gray-700 font-medium mb-2">
+          <label htmlFor="sku" className="text-muted-foreground font-medium mb-2">
             SKU
           </label>
           <input
@@ -112,11 +109,11 @@ export default function AddProductPage() {
             onChange={handleChange}
             placeholder="Enter SKU code"
             required
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800 transition"/>
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition" />
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="price" className="text-gray-700 font-medium mb-2">
+          <label htmlFor="price" className="text-muted-foreground font-medium mb-2">
             Price ($)
           </label>
           <input
@@ -128,11 +125,11 @@ export default function AddProductPage() {
             min={0}
             required
             placeholder="0.00"
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800 transition"/>
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition"/>
         </div>
-
+        
         <div className="flex flex-col">
-          <label htmlFor="stock" className="text-gray-700 font-medium mb-2">
+          <label htmlFor="stock" className="text-muted-foreground font-medium mb-2">
             Stock Quantity
           </label>
           <input
@@ -144,11 +141,11 @@ export default function AddProductPage() {
             min={0}
             required
             placeholder="0"
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800 transition"/>
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition" />
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="category" className="text-gray-700 font-medium mb-2">
+          <label htmlFor="category" className="text-muted-foreground font-medium mb-2">
             Category
           </label>
           <select
@@ -157,7 +154,7 @@ export default function AddProductPage() {
             value={form.category}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800 transition">
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition" >
             <option value="" disabled>
               Select category
             </option>
@@ -169,23 +166,23 @@ export default function AddProductPage() {
           </select>
         </div>
 
-<div className="flex flex-col">
-  <label htmlFor="discount" className="text-gray-700 font-medium mb-2">
-    Discount
-  </label>
-  <input
-    id="discount"
-    type="text"
-    name="discount"
-    value={form.discount}
-    onChange={handleChange}
-    placeholder="%"
-    className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800 transition" />
-</div>
+        <div className="flex flex-col">
+          <label htmlFor="discount" className="text-muted-foreground font-medium mb-2">
+            Discount
+          </label>
+          <input
+            id="discount"
+            type="text"
+            name="discount"
+            value={form.discount}
+            onChange={handleChange}
+            placeholder="%"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition"/>
+        </div>
 
-        {/* Description  */}
+        {/* Description */}
         <div className="flex flex-col md:col-span-2">
-          <label htmlFor="description" className="text-gray-700 font-medium mb-2">
+          <label htmlFor="description" className="text-muted-foreground font-medium mb-2">
             Description
           </label>
           <textarea
@@ -195,11 +192,11 @@ export default function AddProductPage() {
             onChange={handleChange}
             placeholder="Enter product description"
             rows={4}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800 transition resize-none"/>
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition resize-none"/>
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="image" className="text-gray-700 font-medium mb-2">
+          <label htmlFor="image" className="text-muted-foreground font-medium mb-2">
             Product Image
           </label>
           <input
@@ -208,13 +205,12 @@ export default function AddProductPage() {
             name="image"
             accept="image/*"
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-purple-800 transition"/>
+            className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-ring transition" />
         </div>
-
         {form.imagePreview && (
           <div className="flex flex-col items-center md:items-start">
-            <p className="text-gray-700 font-medium mb-2">Image Preview:</p>
-            <div className="relative w-full h-48 md:w-60 md:h-48 overflow-hidden rounded-lg border border-gray-300">
+            <p className="text-muted-foreground font-medium mb-2">Image Preview:</p>
+            <div className="relative w-full h-48 overflow-hidden rounded-lg border border-gray-300">
               <Image
                 src={form.imagePreview}
                 alt="Preview of product image"
@@ -224,13 +220,12 @@ export default function AddProductPage() {
             </div>
           </div>
         )}
+
         {/* Submit */}
         <div className="md:col-span-2 flex justify-end mt-4">
-          <button
-            type="submit"
-            className="bg-purple-800 text-white font-semibold px-6 py-3 rounded-xl hover:bg-purple-900 transition">
+          <Button type="submit">
             Add Product
-          </button>
+          </Button>
         </div>
       </form>
     </main>

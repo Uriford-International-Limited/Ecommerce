@@ -34,8 +34,8 @@ export default function SettingsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4 sm:p-10">
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center sm:text-left">
+    <main className="min-h-screen bg-gray-50 p-4">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center sm:text-left">
         Settings
       </h1>
 
@@ -44,7 +44,9 @@ export default function SettingsPage() {
         className="bg-white border border-gray-200 rounded-2xl shadow-md p-6 sm:p-8 max-w-2xl mx-auto space-y-6">
         {/* Banner */}
         <div>
-          <label htmlFor="banner" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="banner"
+            className="block text-accent-foreground font-medium mb-2">
             Store Banner
           </label>
           <div className="mb-3 w-full h-40 sm:h-48 relative rounded-lg overflow-hidden border border-gray-300">
@@ -52,7 +54,7 @@ export default function SettingsPage() {
               src={preview}
               alt="Store Banner"
               fill
-              className="object-cover w-full h-full"/>
+              className="object-cover size-full"/>
           </div>
           <input
             type="file"
@@ -60,11 +62,14 @@ export default function SettingsPage() {
             id="banner"
             accept="image/*"
             onChange={handleChange}
-            className="block w-full text-gray-700 mt-1"
+            className="block w-full text-accent-foreground mt-1"
             title="Upload store banner"/>
         </div>
+
         <div>
-          <label htmlFor="storeName" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="storeName"
+            className="block text-accent-foreground font-medium mb-2">
             Store Name
           </label>
           <input
@@ -73,14 +78,15 @@ export default function SettingsPage() {
             id="storeName"
             value={form.storeName}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring"
             required
-            placeholder="Enter your store name"  />
+            placeholder="Enter your store name"/>
         </div>
 
-        {/* Name */}
         <div>
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="name"
+            className="block text-accent-foreground font-medium mb-2">
             Your Name
           </label>
           <input
@@ -89,13 +95,15 @@ export default function SettingsPage() {
             id="name"
             value={form.name}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring"
             required
             placeholder="Enter your name"/>
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="email"
+            className="block text-accent-foreground font-medium mb-2">
             Email
           </label>
           <input
@@ -104,13 +112,15 @@ export default function SettingsPage() {
             id="email"
             value={form.email}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring"
             required
             placeholder="Enter your email"/>
         </div>
-      
+
         <div>
-          <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="phone"
+            className="block text-accent-foreground font-medium mb-2">
             Phone
           </label>
           <input
@@ -119,14 +129,15 @@ export default function SettingsPage() {
             id="phone"
             value={form.phone}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring"
             required
-            placeholder="Enter your phone number"
-          />
+            placeholder="Enter your phone number"/>
         </div>
 
         <div>
-          <label htmlFor="address" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="address"
+            className="block text-accent-foreground font-medium mb-2">
             Address
           </label>
           <input
@@ -135,12 +146,15 @@ export default function SettingsPage() {
             id="address"
             value={form.address}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring"
             required
             placeholder="Enter your address"/>
         </div>
+
         <div>
-          <label htmlFor="location" className="block text-gray-700 font-medium mb-2">
+          <label
+            htmlFor="location"
+            className="block text-accent-foreground font-medium mb-2">
             Location
           </label>
           <input
@@ -149,15 +163,13 @@ export default function SettingsPage() {
             id="location"
             value={form.location}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-800"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring"
             required
-            placeholder="Enter your city or location"  />
+            placeholder="Enter your city or location"/>
         </div>
 
         {/* Submit */}
-        <button
-          type="submit"
-          className="w-full sm:w-auto bg-purple-800 text-white font-medium px-6 py-3 rounded-lg hover:bg-purple-700 transition">
+        <button type="submit" className="w-full">
           Save Settings
         </button>
       </form>
