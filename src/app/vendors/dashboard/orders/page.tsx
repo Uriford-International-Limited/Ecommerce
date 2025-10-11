@@ -29,8 +29,8 @@ export default function OrdersPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-6">Orders</h1>
+    <main className="min-h-screen bg-gray-50 p-4 sm:p-6">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center sm:text-left">Orders</h1>
 
       {orders.length === 0 ? (
         <p className="text-gray-500 text-center py-10 bg-white border border-gray-200 rounded-2xl">
@@ -38,7 +38,7 @@ export default function OrdersPage() {
         </p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-[700px] w-full bg-white border border-gray-200 rounded-2xl shadow-md">
+          <table className="min-w-[600px] sm:min-w-full w-full bg-white border border-gray-200 rounded-2xl shadow-md">
             <thead className="bg-gray-100">
               <tr>
                 <th className="p-2 sm:p-4 text-left text-gray-700 font-medium text-sm sm:text-base">Order ID</th>
@@ -61,7 +61,7 @@ export default function OrdersPage() {
                     </span>
                   </td>
                   <td className="p-2 sm:p-4 text-gray-800">{order.date}</td>
-                  <td className="p-2 sm:p-4 flex flex-wrap gap-1 sm:gap-2">
+                  <td className="p-2 sm:p-4 flex flex-col sm:flex-row flex-wrap gap-1 sm:gap-2">
                     <button className="flex items-center gap-1 text-xs sm:text-sm text-purple-600 hover:text-purple-800 transition">
                       <Eye className="w-4 h-4" /> View
                     </button>

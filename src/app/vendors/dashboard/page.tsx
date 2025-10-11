@@ -32,15 +32,11 @@ export default function VendorDashboard() {
 
   return (
     <main className="min-h-screen p-4 sm:p-6 md:p-10 bg-gray-50">
+      {/* Banner */}
       <div className="relative w-full h-56 sm:h-64 md:h-72 rounded-xl overflow-hidden border border-gray-200">
-        <Image
-          src={vendor.banner}
-          alt="Vendor Banner"
-          fill
-          className="object-cover"
-          priority/>
+        <Image src={vendor.banner} alt="Vendor Banner" fill className="object-cover" priority />
         <div className="absolute bottom-4 left-4">
-          <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-black">
+          <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-black truncate max-w-xs sm:max-w-md">
             {vendor.name}
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-gray-600">
@@ -58,11 +54,9 @@ export default function VendorDashboard() {
         ].map((stat, idx) => (
           <div
             key={idx}
-            className="bg-white border border-gray-200 p-4 sm:p-6 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-lg transition">
-            <h3 className="text-muted-foreground text-sm">{stat.title}</h3>
-       <p className="text-2xl sm:text-3xl font-bold text-primary mt-2">
-              {stat.value}
-            </p>
+            className="bg-white border border-gray-200 p-4 sm:p-6 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-lg transition min-w-0">
+            <h3 className="text-muted-foreground text-sm truncate">{stat.title}</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-primary mt-2 truncate">{stat.value}</p>
           </div>
         ))}
       </section>
@@ -70,7 +64,7 @@ export default function VendorDashboard() {
       <section className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm overflow-x-auto">
           <h2 className="text-xl font-semibold mb-4">Recent Orders</h2>
-          <table className="w-full text-left">
+          <table className="w-full text-left table-auto sm:table-fixed">
             <thead>
               <tr className="text-muted-foreground text-sm border-b">
                 <th className="pb-2">Order ID</th>
@@ -83,7 +77,7 @@ export default function VendorDashboard() {
               {recentOrders.map((order) => (
                 <tr key={order.id} className="border-b last:border-b-0">
                   <td className="py-2 text-gray-700">{order.id}</td>
-                  <td className="py-2 text-gray-700">{order.customer}</td>
+                  <td className="py-2 text-gray-700 truncate max-w-[100px] sm:max-w-[150px]">{order.customer}</td>
                   <td className="py-2 text-gray-700">${order.total}</td>
                   <td className="py-2 text-gray-700">{order.status}</td>
                 </tr>
@@ -96,9 +90,8 @@ export default function VendorDashboard() {
           <h2 className="text-xl font-semibold mb-4">Low Stock Products</h2>
           <ul className="space-y-2">
             {lowStockProducts.map((product) => (
-              <li key={product.id} className="text-gray-700">
-                {product.name} -{" "}
-                <span className="font-medium">{product.stock} left</span>
+              <li key={product.id} className="text-gray-700 truncate max-w-xs sm:max-w-full">
+                {product.name} - <span className="font-medium">{product.stock} left</span>
               </li>
             ))}
           </ul>
@@ -107,20 +100,16 @@ export default function VendorDashboard() {
 
       <section className="mt-8">
         <h2 className="text-xl font-semibold mb-4">Top Selling Products</h2>
-        <div className="flex overflow-x-auto gap-4 pb-4">
+        <div className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
           {topProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white border border-gray-200 rounded-xl p-4 min-w-[150px] shadow-sm hover:shadow-lg transition flex-shrink-0">
+              className="bg-white border border-gray-200 rounded-xl p-4 min-w-[150px] sm:min-w-[180px] shadow-sm hover:shadow-lg transition flex-shrink-0 snap-start">
               <div className="w-full h-32 relative mb-2">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover rounded"/>
+                <Image src={product.image} alt={product.name} fill className="object-cover rounded" />
               </div>
-              <p className="text-gray-700 font-medium text-sm">{product.name}</p>
-             <p className="text-primary text-sm">{product.sales} sales</p>
+              <p className="text-gray-700 font-medium text-sm truncate">{product.name}</p>
+              <p className="text-primary text-sm">{product.sales} sales</p>
             </div>
           ))}
         </div>

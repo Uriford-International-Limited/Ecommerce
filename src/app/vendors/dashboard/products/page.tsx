@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Edit, Trash2 } from "lucide-react";
-import { Button } from "@/components/ui/button"; 
+import { Button } from "@/components/ui/button";
 
 type Product = {
   id: number;
@@ -49,7 +49,7 @@ export default function ProductsPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4">
+    <main className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-10">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center sm:text-left">
         Products
       </h1>
@@ -63,7 +63,7 @@ export default function ProductsPage() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white border border-border rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col h-full">
+              className="bg-white border border-border rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col h-full sm:min-h-[420px] md:min-h-[450px]">
               <div className="relative w-full aspect-square">
                 <Image
                   src={product.image}
@@ -94,14 +94,14 @@ export default function ProductsPage() {
                   <Button
                     variant="default"
                     className="flex-1 flex items-center justify-center gap-1 text-sm sm:text-base">
-                    <Edit />
+                    <Edit className="size-4 sm:size-5" />
                     Edit
                   </Button>
                   <Button
                     variant="destructive"
                     className="flex-1 flex items-center justify-center gap-1 text-sm sm:text-base"
                     onClick={() => handleDelete(product.id)}>
-                    <Trash2 />
+                    <Trash2 className="size-4 sm:size-5" />
                     Delete
                   </Button>
                 </div>

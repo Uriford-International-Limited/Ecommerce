@@ -76,9 +76,10 @@ export default function AddProductPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 p-4 sm:p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center sm:text-left max-w-4xl mx-auto">
-        Add New Product
-      </h1>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center sm:text-left max-w-4xl mx-auto">
+  Add New Product
+</h1>
+
       <form
         onSubmit={handleSubmit}
         className="max-w-4xl mx-auto grid gap-6 md:grid-cols-2 items-start">
@@ -155,13 +156,9 @@ export default function AddProductPage() {
             onChange={handleChange}
             required
             className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition" >
-            <option value="" disabled>
-              Select category
-            </option>
+            <option value="" disabled>Select category</option>
             {categories.map((cat) => (
-              <option key={cat} value={cat}>
-                {cat}
-              </option>
+              <option key={cat} value={cat}>{cat}</option>
             ))}
           </select>
         </div>
@@ -180,7 +177,6 @@ export default function AddProductPage() {
             className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-ring transition"/>
         </div>
 
-        {/* Description */}
         <div className="flex flex-col md:col-span-2">
           <label htmlFor="description" className="text-muted-foreground font-medium mb-2">
             Description
@@ -207,6 +203,7 @@ export default function AddProductPage() {
             onChange={handleChange}
             className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-ring transition" />
         </div>
+
         {form.imagePreview && (
           <div className="flex flex-col items-center md:items-start">
             <p className="text-muted-foreground font-medium mb-2">Image Preview:</p>
@@ -221,9 +218,8 @@ export default function AddProductPage() {
           </div>
         )}
 
-        {/* Submit */}
-        <div className="md:col-span-2 flex justify-end mt-4">
-          <Button type="submit">
+        <div className="md:col-span-2 flex justify-center sm:justify-end mt-4">
+          <Button type="submit" className="w-full sm:w-auto">
             Add Product
           </Button>
         </div>

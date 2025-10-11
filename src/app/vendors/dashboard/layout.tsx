@@ -28,7 +28,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gray-50 overflow-x-hidden">
       <div className="sm:hidden flex justify-between items-center border-b p-4 shadow-md">
         <h2 className="text-xl font-bold text-gray-800">Vendor Panel</h2>
         <button
@@ -54,7 +54,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </button>
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-8 px-6 sm:px-8 border-b pb-3">
+        <h2 className="text-2xl font-bold mb-8 px-6 sm:px-8 border-b pb-3">
           Vendor Panel
         </h2>
 
@@ -72,8 +72,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     ? "bg-accent text-accent-foreground"
                     : "text-gray-800 hover:bg-accent"}
                 `}>
-                <Icon className="mr-3 size-5" />
-                {item.name}
+                <Icon className="mr-3 w-5 h-5 flex-shrink-0" />
+                <span className="truncate">{item.name}</span>
               </Link>
             );
           })}
@@ -83,9 +83,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div
           className="fixed inset-0 bg-black/30 z-40 sm:hidden"
           onClick={() => setSidebarOpen(false)}
-          aria-hidden="true"  />
+          aria-hidden="true"/>
       )}
-      <div className="flex-1 p-4">{children}</div>
+      <div className="flex-1 p-4 min-w-0">{children}</div>
     </div>
   );
 }

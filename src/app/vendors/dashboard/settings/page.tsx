@@ -2,6 +2,7 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function SettingsPage() {
   const [form, setForm] = useState({
@@ -42,7 +43,6 @@ export default function SettingsPage() {
       <form
         onSubmit={handleSubmit}
         className="bg-white border border-gray-200 rounded-2xl shadow-md p-6 sm:p-8 max-w-2xl mx-auto space-y-6">
-        {/* Banner */}
         <div>
           <label
             htmlFor="banner"
@@ -167,11 +167,9 @@ export default function SettingsPage() {
             required
             placeholder="Enter your city or location"/>
         </div>
-
-        {/* Submit */}
-        <button type="submit" className="w-full">
-          Save Settings
-        </button>
+      <Button type="submit" className="w-full">
+       Save Settings
+     </Button>
       </form>
     </main>
   );
