@@ -59,12 +59,12 @@ export default function ProductsPage() {
           No products found. Please add some products.
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white border border-border rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col h-full sm:min-h-[420px] md:min-h-[450px]">
-              <div className="relative w-full aspect-square">
+              className="bg-white border border-border rounded-2xl shadow hover:shadow-lg transition overflow-hidden flex flex-col h-[25rem]">
+              <div className="relative w-full h-4/5">
                 <Image
                   src={product.image}
                   alt={product.name}
