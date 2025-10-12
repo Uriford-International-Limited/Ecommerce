@@ -20,9 +20,7 @@ const Footer = () => {
       href: "https://twitter.com",
     },
     {
-      content: (
-        <Instagram className="text-destructive" size={24} />
-      ),
+      content: <Instagram className="text-destructive" size={24} />,
       href: "https://instagram.com",
     },
     {
@@ -170,9 +168,10 @@ const Footer = () => {
               <Link href="/googlePlay">
                 <Image
                   src="/google_play.png"
-                  width={136}
-                  height={44}
+                  width={300}
+                  height={200}
                   alt="Google Play"
+                  className="w-[8rem]"
                 />
               </Link>
               <p className="text-[13px] font-medium leading-[150%] tracking-[-0.03em] text-muted-foreground">
@@ -183,9 +182,10 @@ const Footer = () => {
               <Link href="/appStore">
                 <Image
                   src="/app_store.png"
-                  width={136}
-                  height={44}
+                  width={300}
+                  height={200}
                   alt="App Store"
+                  className="w-[8rem]"
                 />
               </Link>
               <p className="text-[13px] font-medium leading-[150%] tracking-[-0.03em] text-muted-foreground">
@@ -221,7 +221,13 @@ const Footer = () => {
               items={[
                 {
                   content: (
-                    <Image src="/visa.png" width={40} height={13} alt="Visa" />
+                    <Image
+                      src="/visa.png"
+                      width={200}
+                      height={100}
+                      alt="Visa"
+                      className="w-[3rem]"
+                    />
                   ),
                   href: "/visa",
                 },
@@ -229,9 +235,10 @@ const Footer = () => {
                   content: (
                     <Image
                       src="/master_card.png"
-                      width={27}
-                      height={16}
+                      width={200}
+                      height={100}
                       alt="Mastercard"
+                      className="w-[2rem]"
                     />
                   ),
                   href: "/mastercard",
@@ -240,9 +247,10 @@ const Footer = () => {
                   content: (
                     <Image
                       src="/paypal.png"
-                      width={59}
-                      height={15}
+                      width={200}
+                      height={100}
                       alt="Paypal"
+                      className="w-[4rem]"
                     />
                   ),
                   href: "/paypal",
@@ -251,9 +259,10 @@ const Footer = () => {
                   content: (
                     <Image
                       src="/skrill.png"
-                      width={45}
-                      height={15}
+                      width={200}
+                      height={100}
                       alt="Skrill"
+                      className="w-[3rem]"
                     />
                   ),
                   href: "/skrill",
@@ -262,9 +271,10 @@ const Footer = () => {
                   content: (
                     <Image
                       src="/klarna.png"
-                      width={71}
-                      height={15}
+                      width={200}
+                      height={100}
                       alt="Klarna."
+                      className="w-[4.7em]"
                     />
                   ),
                   href: "/klarna",
