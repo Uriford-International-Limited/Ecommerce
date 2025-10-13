@@ -17,7 +17,7 @@ const cities = ["Dhaka", "Edmonton", "California"];
 
 const AccountDetails = () => {
   return (
-    <div className="w-full">
+    <div className="container">
       <h1 className="text-[18px] lg:text-2xl font-bold mb-4">
         Account Details
       </h1>

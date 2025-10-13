@@ -38,7 +38,7 @@ const Wishlist = () => {
   };
 
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="container">
       <div>
         <Image
           src="/dashboard_banner.svg"
