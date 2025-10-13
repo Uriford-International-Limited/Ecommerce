@@ -27,14 +27,20 @@ export default function VendorDashboard() {
     { id: 1, name: "Beverages", sales: 180, image: "/beverages.png" },
     { id: 2, name: "Fruits", sales: 160, image: "/fruits.png" },
     { id: 3, name: "Vegetables", sales: 140, image: "/vegetables.png" },
-    { id: 4, name: "Dairy Products", sales: 110, image: "/dairy.png" },
+    { id: 4, name: "Dairy Products", sales: 110, image: "/dairyproducts.png" },
   ];
 
   return (
     <main className="min-h-screen p-4 sm:p-6 md:p-10 bg-gray-50">
       {/* Banner */}
       <div className="relative w-full h-56 sm:h-64 md:h-72 rounded-xl overflow-hidden border border-gray-200">
-        <Image src={vendor.banner} alt="Vendor Banner" fill className="object-cover" priority />
+      <Image
+  src="/banner.png"
+  alt="Vendor Banner"
+  fill
+  priority
+  sizes="(max-width: 1024px) 90vw, 80vw"
+  className="object-cover"/>
         <div className="absolute bottom-4 left-4">
           <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-black truncate max-w-xs sm:max-w-md">
             {vendor.name}
@@ -56,7 +62,9 @@ export default function VendorDashboard() {
             key={idx}
             className="bg-white border border-gray-200 p-4 sm:p-6 rounded-xl shadow-sm flex flex-col justify-between hover:shadow-lg transition min-w-0">
             <h3 className="text-muted-foreground text-sm truncate">{stat.title}</h3>
-            <p className="text-2xl sm:text-3xl font-bold text-primary mt-2 truncate">{stat.value}</p>
+            <p className="text-2xl sm:text-3xl font-bold text-primary mt-2 truncate">
+              {stat.value}
+            </p>
           </div>
         ))}
       </section>
@@ -77,7 +85,9 @@ export default function VendorDashboard() {
               {recentOrders.map((order) => (
                 <tr key={order.id} className="border-b last:border-b-0">
                   <td className="py-2 text-gray-700">{order.id}</td>
-                  <td className="py-2 text-gray-700 truncate max-w-[100px] sm:max-w-[150px]">{order.customer}</td>
+                  <td className="py-2 text-gray-700 truncate max-w-[100px] sm:max-w-[150px]">
+                    {order.customer}
+                  </td>
                   <td className="py-2 text-gray-700">${order.total}</td>
                   <td className="py-2 text-gray-700">{order.status}</td>
                 </tr>
@@ -90,8 +100,12 @@ export default function VendorDashboard() {
           <h2 className="text-xl font-semibold mb-4">Low Stock Products</h2>
           <ul className="space-y-2">
             {lowStockProducts.map((product) => (
-              <li key={product.id} className="text-gray-700 truncate max-w-xs sm:max-w-full">
-                {product.name} - <span className="font-medium">{product.stock} left</span>
+              <li
+                key={product.id}
+                className="text-gray-700 truncate max-w-xs sm:max-w-full"
+              >
+                {product.name} -{" "}
+                <span className="font-medium">{product.stock} left</span>
               </li>
             ))}
           </ul>
@@ -106,9 +120,16 @@ export default function VendorDashboard() {
               key={product.id}
               className="bg-white border border-gray-200 rounded-xl p-4 min-w-[150px] sm:min-w-[180px] shadow-sm hover:shadow-lg transition flex-shrink-0 snap-start">
               <div className="w-full h-32 relative mb-2">
-                <Image src={product.image} alt={product.name} fill className="object-cover rounded" />
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover rounded"/>
               </div>
-              <p className="text-gray-700 font-medium text-sm truncate">{product.name}</p>
+              <p className="text-gray-700 font-medium text-sm truncate">
+                {product.name}
+              </p>
               <p className="text-primary text-sm">{product.sales} sales</p>
             </div>
           ))}
