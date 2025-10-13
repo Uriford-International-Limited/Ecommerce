@@ -70,9 +70,9 @@ A cutting-edge, full-featured ecommerce platform built with Next.js, featuring m
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-organization/shopsphere.git
+  https://github.com/Uriford-International-Limited/Ecommerce.git
 
-   cd shopsphere
+   cd Ecommerce
 
    npm install
 
