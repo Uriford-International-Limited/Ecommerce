@@ -36,12 +36,12 @@ import {
 } from "@/components/ui/alert-dialog";
 
 const items = [
-  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Orders", url: "/dashboard/orders", icon: ShoppingCart },
-  { title: "Wishlist", url: "/dashboard/wishlist", icon: ClipboardList },
-  { title: "Inbox", url: "/dashboard/inbox", icon: Inbox },
-  { title: "Account Details", url: "/dashboard/accountdetails", icon: UserPen },
-  { title: "Log out", url: "/dashboard/logout", icon: LogOut },
+  { title: "Dashboard", url: "/profile", icon: LayoutDashboard },
+  { title: "Orders", url: "/profile/orders", icon: ShoppingCart },
+  { title: "Wishlist", url: "/profile/wishlist", icon: ClipboardList },
+  { title: "Inbox", url: "/profile/inbox", icon: Inbox },
+  { title: "Account Details", url: "/profile/accountdetails", icon: UserPen },
+  { title: "Log out", url: "/profile/logout", icon: LogOut },
 ];
 
 export default function DashboardLayout({
@@ -63,7 +63,7 @@ export default function DashboardLayout({
                 <SidebarGroupContent>
                   <SidebarMenu className="space-y-1.5 p-3">
                     {items.map((item) => {
-                      const isDashboard = item.url === "/dashboard";
+                      const isDashboard = item.url === "/profile";
                       const isActive = isDashboard
                         ? pathname === item.url
                         : pathname.startsWith(item.url);
