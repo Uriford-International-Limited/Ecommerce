@@ -9,7 +9,7 @@ export default function SettingsPage() {
     storeName: "ShopStore",
     name: "David",
     email: "vendor@example.com",
-    phone: "123-456-7890",
+    phone: "123-456-7810",
     address: " Main Street",
     location: "New York, USA",
     banner: "/banner.png",
@@ -82,7 +82,6 @@ export default function SettingsPage() {
             required
             placeholder="Enter your store name"/>
         </div>
-
         <div>
           <label
             htmlFor="name"
@@ -150,7 +149,6 @@ export default function SettingsPage() {
             required
             placeholder="Enter your address"/>
         </div>
-
         <div>
           <label
             htmlFor="location"

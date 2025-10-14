@@ -10,14 +10,12 @@ type Order = {
   status: "Pending" | "Shipped" | "Delivered" | "Cancelled";
   date: string;
 };
-
 export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([
     { id: 1023, customer: "David", total: 150, status: "Pending", date: "2025-10-01" },
     { id: 1022, customer: "David", total: 220, status: "Shipped", date: "2025-09-29" },
     { id: 1021, customer: "David", total: 85, status: "Delivered", date: "2025-09-28" },
   ]);
-
   const getStatusColor = (status: Order["status"]) => {
     switch (status) {
       case "Pending": return "bg-yellow-100 text-yellow-700";
@@ -31,7 +29,6 @@ export default function OrdersPage() {
   return (
     <main className="min-h-screen bg-gray-50 p-4 sm:p-6">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center sm:text-left">Orders</h1>
-
       {orders.length === 0 ? (
         <p className="text-gray-500 text-center py-10 bg-white border border-gray-200 rounded-2xl">
           No orders found.
@@ -73,7 +70,7 @@ export default function OrdersPage() {
                     {order.status !== "Cancelled" && (
                       <button className="flex items-center gap-1 text-xs sm:text-sm text-red-600 hover:text-red-800 transition">
                         <XCircle className="w-4 h-4" /> Cancel
-                      </button>
+                       </button>
                     )}
                   </td>
                 </tr>
