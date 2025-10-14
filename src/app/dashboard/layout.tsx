@@ -52,82 +52,86 @@ export default function DashboardLayout({
   const pathname = usePathname();
 
   return (
-    <SidebarProvider>
-      <div className="flex min-h-screen">
-        {/* User Dashboard Sidebar */}
-        <Sidebar>
-          <SidebarContent>
-            <SidebarGroup>
-              <SidebarGroupLabel></SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu className="space-y-1.5">
-                  {items.map((item) => {
-                    const isDashboard = item.url === "/dashboard";
-                    const isActive = isDashboard
-                      ? pathname === item.url
-                      : pathname.startsWith(item.url);
+    <main className="relative">
+      <SidebarProvider>
+        <div className="flex container">
+          {/* User Dashboard Sidebar */}
+          <Sidebar className="absolute top-0 left-0">
+            <SidebarContent>
+              <SidebarGroup>
+                <SidebarGroupLabel className="text-3xl mb-4 mx-auto">Profile</SidebarGroupLabel>
+                <SidebarGroupContent>
+                  <SidebarMenu className="space-y-1.5 p-3">
+                    {items.map((item) => {
+                      const isDashboard = item.url === "/dashboard";
+                      const isActive = isDashboard
+                        ? pathname === item.url
+                        : pathname.startsWith(item.url);
 
-                    const isLogOut = item.title === "Log out";
+                      const isLogOut = item.title === "Log out";
 
-                    return (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                          {isLogOut ? (
-                            //Log Out
-                            <AlertDialog>
-                              <AlertDialogTrigger asChild>
-                                <button className="flex items-center gap-2 p-2 rounded-md w-full text-left transition-colors hover:bg-gray-100 text-muted">
-                                  <item.icon />
-                                  <span>{item.title}</span>
-                                </button>
-                              </AlertDialogTrigger>
-                              <AlertDialogContent>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>
-                                    Are you absolutely sure?
-                                  </AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    This action cannot be undone. This will
-                                    permanently log you out.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                  <AlertDialogAction onClick={() => {}}>
-                                    Log out
-                                  </AlertDialogAction>
-                                </AlertDialogFooter>
-                              </AlertDialogContent>
-                            </AlertDialog>
-                          ) : (
-                            <Link
-                              href={item.url}
-                              className={`flex items-center gap-2 p-2 rounded-md transition-colors ${
-                                isActive
-                                  ? "bg-border font-semibold text-muted"
-                                  : "hover:bg-input text-muted"
-                              }`}
-                            >
-                              <item.icon />
-                              <span>{item.title}</span>
-                            </Link>
-                          )}
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    );
-                  })}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </SidebarContent>
-        </Sidebar>
+                      return (
+                        <SidebarMenuItem key={item.title}>
+                          <SidebarMenuButton asChild>
+                            {isLogOut ? (
+                              //Log Out
+                              <AlertDialog>
+                                <AlertDialogTrigger asChild>
+                                  <button className="flex items-center gap-2 p-2 rounded-md w-full text-left transition-colors hover:bg-gray-100 text-muted">
+                                    <item.icon />
+                                    <span>{item.title}</span>
+                                  </button>
+                                </AlertDialogTrigger>
+                                <AlertDialogContent>
+                                  <AlertDialogHeader>
+                                    <AlertDialogTitle>
+                                      Are you absolutely sure?
+                                    </AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                      This action cannot be undone. This will
+                                      permanently log you out.
+                                    </AlertDialogDescription>
+                                  </AlertDialogHeader>
+                                  <AlertDialogFooter>
+                                    <AlertDialogCancel>
+                                      Cancel
+                                    </AlertDialogCancel>
+                                    <AlertDialogAction onClick={() => {}}>
+                                      Log out
+                                    </AlertDialogAction>
+                                  </AlertDialogFooter>
+                                </AlertDialogContent>
+                              </AlertDialog>
+                            ) : (
+                              <Link
+                                href={item.url}
+                                className={`flex items-center gap-2 p-2 rounded-md transition-colors ${
+                                  isActive
+                                    ? "bg-border font-semibold text-muted"
+                                    : "hover:bg-input text-muted"
+                                }`}
+                              >
+                                <item.icon />
+                                <span>{item.title}</span>
+                              </Link>
+                            )}
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      );
+                    })}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
+            </SidebarContent>
+          </Sidebar>
 
-        {/* Main Content */}
-        <main className="flex-1 p-3 lg:p-6">
-          <SidebarTrigger />
-          {children}
-        </main>
-      </div>
-    </SidebarProvider>
+          {/* Main Content */}
+          <main className="flex-1 p-3 lg:p-6">
+            <SidebarTrigger />
+            {children}
+          </main>
+        </div>
+      </SidebarProvider>
+    </main>
   );
 }

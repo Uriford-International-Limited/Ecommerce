@@ -10,7 +10,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="container">
+    <div>
       <div>
         <Image
           src="/dashboard_banner.svg"
